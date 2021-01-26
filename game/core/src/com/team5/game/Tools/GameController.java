@@ -30,7 +30,7 @@ public class GameController {
     Array<Infiltrator> infiltrators;
 
     //NPC numbers
-    int noNPCs = 72;
+    int noNPCs = 50;
     int noInfiltrators = 8;
 
     public GameController(MainGame game, PlayScreen screen){
