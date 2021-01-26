@@ -49,6 +49,7 @@ public class PlayScreen implements Screen {
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
+    private final int noNPCs;
 
     //Stage
     public Stage stage;
@@ -71,7 +72,7 @@ public class PlayScreen implements Screen {
     public CustomCamera camera;
     public GameController gameController;
 
-    public PlayScreen(MainGame game){
+    public PlayScreen(MainGame game, int noNPCs){
         this.game = game;
 
         //Tilemap
@@ -91,7 +92,8 @@ public class PlayScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         //Game Controller
-        gameController = new GameController(game, this);
+        this.noNPCs = noNPCs;//change runtimeerror
+        gameController = new GameController(game, this,noNPCs);
         camera.follow(gameController.getPlayer());
 
         //Collisions for TileMap

@@ -47,6 +47,7 @@ public class MainMenuScreen implements Screen {
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
+    private int noNPCs = 75;
 
     //Reference
     private final CustomCamera camera;
@@ -153,7 +154,7 @@ public class MainMenuScreen implements Screen {
         playButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
             }
         });
 
