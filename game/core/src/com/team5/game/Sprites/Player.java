@@ -134,16 +134,6 @@ public class Player extends Sprite {
                 currentAbility = abilityNum;
                 abilityAvailable[0] = false;
                 abilityCurrentlyActive[0] = true;
-                if(abilityNum == 0) {
-                    //System invulnerability
-                    //no code needed here - it's in InfiltratorAIBehaviour
-                } else if(abilityNum == 1) {
-                    //PLACEHOLDER - ability at keyboard 2
-                } else if(abilityNum == 2) {
-                    //PLACEHOLDER - ability at keyboard 3
-                } else if (abilityNum == 3) {
-                    //PLACEHOLDER - ability at keyboard 4
-                }
             }
         }
     }
