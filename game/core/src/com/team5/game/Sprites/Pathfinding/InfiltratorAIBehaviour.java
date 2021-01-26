@@ -86,24 +86,27 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     //wait is changed to break a system if they're at one.
     @Override
     public void wait(float delta) {
-         if (waitTime <= 0f || goalSystem.getBroken()){
-             if (breaking && !goalSystem.getBroken()){
-                 explosion.play(0.2f);
-                 goalSystem.destroy();
-                 systemChecker.breakSystem();
-             }
-            waiting = false;
-            systems.removeValue(goalSystem, false);
+        //Runtime errors edit
+        if(!player.abilityCurrentlyActive[0]) {
+            if (waitTime <= 0f || goalSystem.getBroken()) {
+                if (breaking && !goalSystem.getBroken()) {
+                    explosion.play(0.2f);
+                    goalSystem.destroy();
+                    systemChecker.breakSystem();
+                }
+                waiting = false;
+                systems.removeValue(goalSystem, false);
 
-            if (random.nextFloat() < breakOdds){
-                breaking = true;
-                newSystemTarget();
+                if (random.nextFloat() < breakOdds) {
+                    breaking = true;
+                    newSystemTarget();
+                } else {
+                    breaking = false;
+                    newTarget();
+                }
             } else {
-                breaking = false;
-                newTarget();
+                waitTime -= delta;
             }
-        }else {
-            waitTime -= delta;
         }
     }
 

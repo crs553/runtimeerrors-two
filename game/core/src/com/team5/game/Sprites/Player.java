@@ -51,8 +51,10 @@ public class Player extends Sprite {
     // ADDED BY SECOND DEVELOPERS (RUNTIME ERRORS, TEAM 25)
     //Player Abilities
     //ability at index 0 is system invulnerability - goes to keyboard num 1
+    private int currentAbility = 100; //index for arrays below, 100 means none active
     private boolean[] abilityAvailable = new boolean[] {true,true,true,true}; //(One use)
-    private boolean abilityCurrentlyActive = false;
+    public boolean[] abilityCurrentlyActive = new boolean[] {false,false,false,false};
+    int abilityTimeLeft = 500;
 
 
     //To instantiate the player
@@ -68,6 +70,17 @@ public class Player extends Sprite {
     public void update(){
         handleAnimations(checkInputs());
         health.update();
+
+        //Runtime Errors edit
+        //Manages ability cooldown
+        if(currentAbility != 100) {
+            if (abilityTimeLeft > 0) {
+                abilityTimeLeft--;
+            } else {
+                abilityTimeLeft = 500;
+                abilityCurrentlyActive[currentAbility] = false;
+            }
+        }
     }
 
     //Setting up the animator as well as all the animations.
@@ -99,11 +112,40 @@ public class Player extends Sprite {
             xInput++;
         }
 
-        //Runtime errors edit
-        if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && abilityAvailable[0] && !abilityCurrentlyActive){
-            //FUCK ADD SYSTEM INVULNERABILITY
+        //Runtime errors adding ability buttons (number keys)
+        if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && abilityAvailable[0] && !abilityCurrentlyActive[0]) {
+            activateAbility(0);
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_2) && abilityAvailable[0] && !abilityCurrentlyActive[0]){
+            activateAbility(1);
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_3) && abilityAvailable[0] && !abilityCurrentlyActive[0]){
+            activateAbility(2);
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && abilityAvailable[0] && !abilityCurrentlyActive[0]) {
+            activateAbility(3);
         }
+
+
         return new Vector2(xInput * speed, yInput * speed);
+    }
+    //Created by Runtime Errors
+    //Activates the abilities
+    private void activateAbility(int abilityNum) {
+        if(currentAbility == 100) {
+            if(abilityAvailable[abilityNum]) {
+                currentAbility = abilityNum;
+                abilityAvailable[0] = false;
+                abilityCurrentlyActive[0] = true;
+                if(abilityNum == 0) {
+                    //System invulnerability
+                    //no code needed here - it's in InfiltratorAIBehaviour
+                } else if(abilityNum == 1) {
+                    //PLACEHOLDER - ability at keyboard 2
+                } else if(abilityNum == 2) {
+                    //PLACEHOLDER - ability at keyboard 3
+                } else if (abilityNum == 3) {
+                    //PLACEHOLDER - ability at keyboard 4
+                }
+            }
+        }
     }
 
     //Deciding which animation will be played each frame based on input
