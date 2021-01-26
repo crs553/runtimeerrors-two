@@ -48,6 +48,14 @@ public class Player extends Sprite {
     //Health
     Health health;
 
+    // ADDED BY SECOND DEVELOPERS (RUNTIME ERRORS, TEAM 25)
+    //Player Abilities
+    //ability at index 0 is system invulnerability - goes to keyboard num 1
+    private boolean[] abilityAvailable = new boolean[] {true,true,true,true}; //(One use)
+    private boolean abilityCurrentlyActive = false;
+
+
+    //To instantiate the player
     public Player(MainGame game, World world){
         this.world = world;
 
@@ -91,6 +99,10 @@ public class Player extends Sprite {
             xInput++;
         }
 
+        //Runtime errors edit
+        if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && abilityAvailable[0] && !abilityCurrentlyActive){
+            //FUCK ADD SYSTEM INVULNERABILITY
+        }
         return new Vector2(xInput * speed, yInput * speed);
     }
 
