@@ -33,11 +33,26 @@ public class GameController {
     int noNPCs;
     int noInfiltrators = 8;
 
-    public GameController(MainGame game, PlayScreen screen, int noNPCs){
+
+
+    public GameController(MainGame game, PlayScreen screen){
         this.game = game;
 
+        //runtime errors addition level setter
+        int leverSetter = game.getLevel();
+        if (leverSetter == 1){
+            this.noNPCs = 50;
+            this.noInfiltrators = 10;
+        }
+        else if(leverSetter == 2){
+            this.noNPCs = 75;
+            this.noInfiltrators = 10;
+        }
+        else if(leverSetter == 3){
+            this.noNPCs = 100;
+            this.noInfiltrators = 8;
+        }
 
-        this.noNPCs = noNPCs;//runtimeerrors edit
 
         //Player
         player = new Player(game, screen.getWorld());

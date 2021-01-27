@@ -5,27 +5,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
-import com.team5.game.Environment.Brig;
-import com.team5.game.Environment.SystemChecker;
-import com.team5.game.Sprites.Infiltrator;
-import com.team5.game.Sprites.NPC;
-import com.team5.game.Sprites.Pathfinding.Node;
-import com.team5.game.Sprites.Pathfinding.NodeGraph;
-import com.team5.game.Sprites.Pathfinding.System;
-import com.team5.game.Sprites.Teleporters;
-import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 import com.team5.game.Environment.Walls;
 import com.team5.game.MainGame;
-import com.team5.game.Sprites.Player;
 import com.team5.game.Tools.GameController;
 import com.team5.game.UI.Hud;
 import com.team5.game.UI.Minimap.Minimap;
@@ -93,7 +81,7 @@ public class PlayScreen implements Screen {
 
         //Game Controller
         this.noNPCs = noNPCs;//change runtimeerror
-        gameController = new GameController(game, this,noNPCs);
+        gameController = new GameController(game, this);
         camera.follow(gameController.getPlayer());
 
         //Collisions for TileMap

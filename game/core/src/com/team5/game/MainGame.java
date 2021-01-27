@@ -15,11 +15,13 @@ public class MainGame extends Game {
 
 	public SpriteBatch batch;
 	public TextureAtlas atlas;
+	private int level = 2;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		atlas = Constants.ATLAS;
+		this.level = 2;
 		this.setScreen(new MainMenuScreen(this));
 	}
 
@@ -33,4 +35,6 @@ public class MainGame extends Game {
 		batch.dispose();
 		atlas.dispose();
 	}
+	public int getLevel(){return this.level;}
+	public void setLevel(int level){this.level = level;}
 }
