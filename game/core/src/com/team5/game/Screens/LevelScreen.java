@@ -32,6 +32,16 @@ public class LevelScreen implements Screen {
 
     //Audio
     Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
+
+    //Menu positions
+    Vector2 easyPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
+    Vector2 mediumPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
+    Vector2 hardPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
+    Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
+
+    //NPC number
+    private int noNPCs = 75;
+
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
@@ -40,13 +50,7 @@ public class LevelScreen implements Screen {
     //Reference
     private final CustomCamera camera;
 
-    //Menu positions
-    Vector2 easyPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
-    Vector2 mediumPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
-    Vector2 hardPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
 
-    //NPC number
-    private int noNPCs = 75;
 
     public LevelScreen(final MainGame game){
 
@@ -80,7 +84,7 @@ public class LevelScreen implements Screen {
         game.batch.setProjectionMatrix(camera.cam.combined);
 
         game.batch.begin();
-//        game.batch.draw();
+        game.batch.draw(title, titlePos.x, titlePos.y);
         game.batch.end();
 
         stage.act(delta);
@@ -90,12 +94,6 @@ public class LevelScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         camera.port.update(width, height);
-    }
-    public void update(float delta){
-        world.step(1/60f, 6, 2);
-
-        //Updates Camera
-        camera.update();
     }
 
     @Override
@@ -121,6 +119,15 @@ public class LevelScreen implements Screen {
         b2dr.dispose();
         click.dispose();
     }
+
+    public void update(float delta){
+        world.step(1/60f, 6, 2);
+
+        //Updates Camera
+        camera.update();
+    }
+
+
     void setupButtons(){
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
