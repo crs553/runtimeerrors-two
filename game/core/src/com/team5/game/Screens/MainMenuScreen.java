@@ -28,9 +28,8 @@ public class MainMenuScreen implements Screen {
     //Main Game Reference
     MainGame game;
 
-    //Menu buttons
-    ImageButton playButton;
-    ImageButton quitButton;
+    //Menu buttons edited for difficulty addition
+    ImageButton playButton, quitButton, levelButton;
 
     Stage stage;
 
@@ -137,6 +136,7 @@ public class MainMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         playButton = new ImageButton(new Image(new Texture("Sprites/Menu/PlayOff.png")).getDrawable());
+        levelButton = new ImageButton(new Image(new Texture("Sprites/Menu/LevelOff.png")).getDrawable());
         quitButton = new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());
 
         playButton.setPosition(playPos.x, playPos.y);
@@ -146,12 +146,19 @@ public class MainMenuScreen implements Screen {
         quitButton.setSize(96, 32);
 
         playButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/PlayOn.png")).getDrawable();
+        levelButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/Level.png")).getDrawable();
         quitButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/ExitOn.png")).getDrawable();
 
         stage.addActor(playButton);
         stage.addActor(quitButton);
 
         playButton.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y){
+                click.play(0.5f, 1.5f, 0);
+                game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
+            }
+        });
+        levelButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
                 game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
