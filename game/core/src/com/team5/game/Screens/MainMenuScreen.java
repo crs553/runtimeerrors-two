@@ -39,9 +39,10 @@ public class MainMenuScreen implements Screen {
     Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
 
     //Menu positions
-    Vector2 playPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 60);
-    Vector2 quitPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 20);
-    Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 100);
+    Vector2 playPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
+    Vector2 quitPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
+    Vector2 levelPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
+    Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
 
     //Colliders
     private final World world;
@@ -130,7 +131,7 @@ public class MainMenuScreen implements Screen {
         //Updates Camera
         camera.update();
     }
-
+    // Level addition
     void setupButtons(){
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
@@ -140,16 +141,19 @@ public class MainMenuScreen implements Screen {
         quitButton = new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());
 
         playButton.setPosition(playPos.x, playPos.y);
+        levelButton.setPosition(levelPos.x, levelPos.y);
         quitButton.setPosition(quitPos.x, quitPos.y);
 
-        playButton.setSize(96, 32);
-        quitButton.setSize(96, 32);
+        playButton.setSize(90, 30);
+        levelButton.setSize(90, 30);
+        quitButton.setSize(90, 30);
 
         playButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/PlayOn.png")).getDrawable();
-        levelButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/Level.png")).getDrawable();
+        levelButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/LevelOn.png")).getDrawable();
         quitButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/ExitOn.png")).getDrawable();
 
         stage.addActor(playButton);
+        stage.addActor(levelButton);
         stage.addActor(quitButton);
 
         playButton.addListener(new ClickListener(){
@@ -161,7 +165,7 @@ public class MainMenuScreen implements Screen {
         levelButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
+                game.setScreen(new levelScreen(game));//change runtime errors
             }
         });
 
