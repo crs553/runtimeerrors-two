@@ -113,11 +113,11 @@ public class LevelScreen implements Screen {
 
     @Override
     public void dispose() {
-        this.dispose();
         stage.dispose();
         world.dispose();
         b2dr.dispose();
         click.dispose();
+        this.dispose();
     }
 
     public void update(float delta){
@@ -135,12 +135,15 @@ public class LevelScreen implements Screen {
         easyButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
         mediumButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
         hardButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
+
         easyButton.setPosition(easyPos.x, easyPos.y);
         mediumButton.setPosition(hardPos.x, hardPos.y);
         hardButton.setPosition(mediumPos.x, mediumPos.y);
+
         easyButton.setSize(90, 30);
         mediumButton.setSize(90, 30);
         hardButton.setSize(90, 30);
+
         easyButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
         mediumButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
         hardButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
@@ -148,21 +151,22 @@ public class LevelScreen implements Screen {
         stage.addActor(easyButton);
         stage.addActor(mediumButton);
         stage.addActor(hardButton);
+
         easyButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-//                game.setScreen(new MainMenuScreen(game));//change runtime errors
+                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         mediumButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-//                game.setScreen(new MainMenuScreen(game));//change runtime errors
+                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         hardButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-//                game.setScreen(new MainMenuScreen(game));
+                game.setScreen(new MainMenuScreen(game));
                 click.play(0.5f, 1.5f, 0);
                 Gdx.app.exit();
             }

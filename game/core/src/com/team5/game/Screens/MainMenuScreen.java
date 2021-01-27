@@ -1,3 +1,4 @@
+
 package com.team5.game.Screens;
 
 import com.badlogic.gdx.Gdx;
@@ -28,8 +29,10 @@ public class MainMenuScreen implements Screen {
     //Main Game Reference
     MainGame game;
 
-    //Menu buttons edited for difficulty addition
-    ImageButton playButton, quitButton, levelButton;
+    //Menu buttons
+    ImageButton playButton;
+    ImageButton quitButton;
+    ImageButton levelButton;
 
     Stage stage;
 
@@ -47,7 +50,7 @@ public class MainMenuScreen implements Screen {
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
-    private int noNPCs = 75;
+    private final int noNPCs = 75;
 
     //Reference
     private final CustomCamera camera;
