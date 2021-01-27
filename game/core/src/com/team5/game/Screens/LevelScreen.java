@@ -1,7 +1,7 @@
 package com.team5.game.Screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,8 +18,8 @@ import com.team5.game.MainGame;
 import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 
+public class LevelScreen implements Screen {
 
-public class LevelScreen  implements Screen {
     //Main Game Reference
     MainGame game;
 
