@@ -19,7 +19,7 @@ import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 
 
-public class levelScreen  implements Screen {
+public class LevelScreen  implements Screen {
     //Main Game Reference
     MainGame game;
 
@@ -44,12 +44,11 @@ public class levelScreen  implements Screen {
     Vector2 easyPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
     Vector2 mediumPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
     Vector2 hardPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
-    Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
 
     //NPC number
     private int noNPCs = 75;
 
-    public levelScreen(final MainGame game){
+    public LevelScreen(final MainGame game){
 
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
@@ -126,12 +125,18 @@ public class levelScreen  implements Screen {
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
-        easyButton= new ImageButton(new Image(new Texture("Sprites/Menu/PlayOff.png")).getDrawable());
-        mediumButton= new ImageButton(new Image(new Texture("Sprites/Menu/LevelOff.png")).getDrawable());
-        hardButton= new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());
-        easyButton.setPosition(easyPos.x, easyPos.y);mediumButton.setPosition(hardPos.x, hardPos.y);hardButton.setPosition(mediumPos.x, mediumPos.y);
-        easyButton.setSize(90, 30);mediumButton.setSize(90, 30);hardButton.setSize(90, 30);
-        easyButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/PlayOn.png")).getDrawable();mediumButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/LevelOn.png")).getDrawable();hardButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/ExitOn.png")).getDrawable();
+        easyButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
+        mediumButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
+        hardButton= new ImageButton(new Image(new Texture("Sprites/LevelMenu/EasyOff.png")).getDrawable());
+        easyButton.setPosition(easyPos.x, easyPos.y);
+        mediumButton.setPosition(hardPos.x, hardPos.y);
+        hardButton.setPosition(mediumPos.x, mediumPos.y);
+        easyButton.setSize(90, 30);
+        mediumButton.setSize(90, 30);
+        hardButton.setSize(90, 30);
+        easyButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
+        mediumButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
+        hardButton.getStyle().imageOver = new Image(new Texture("Sprites/LevelMenu/EasyOn.png")).getDrawable();
 
         stage.addActor(easyButton);
         stage.addActor(mediumButton);
@@ -139,17 +144,18 @@ public class levelScreen  implements Screen {
         easyButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
+                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         mediumButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new levelScreen(game));//change runtime errors
+                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         hardButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                game.setScreen(new MainMenuScreen(game));
                 click.play(0.5f, 1.5f, 0);
                 Gdx.app.exit();
             }

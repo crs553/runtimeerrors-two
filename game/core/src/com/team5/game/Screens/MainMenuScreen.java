@@ -165,7 +165,7 @@ public class MainMenuScreen implements Screen {
         levelButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new levelScreen(game));//change runtime errors
+                game.setScreen(new LevelScreen(game));//change runtime errors
             }
         });
 
