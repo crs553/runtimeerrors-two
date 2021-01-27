@@ -144,18 +144,18 @@ public class LevelScreen  implements Screen {
         easyButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new MainMenuScreen(game));//change runtime errors
+//                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         mediumButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new MainMenuScreen(game));//change runtime errors
+//                game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         hardButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                game.setScreen(new MainMenuScreen(game));
+//                game.setScreen(new MainMenuScreen(game));
                 click.play(0.5f, 1.5f, 0);
                 Gdx.app.exit();
             }
