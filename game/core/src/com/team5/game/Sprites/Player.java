@@ -39,8 +39,10 @@ public class Player extends Sprite {
     private Vector2 direction;
 
 
-    //Movement
-    float speed = 150;
+    //Movement (edited by Team 25)
+    float speed = 100;
+    float sprintSpeed = 200;
+    float normalSpeed = 100;
 
     public float x = 50 * Constants.TILE_SIZE;
     public float y = 95 * Constants.TILE_SIZE;
@@ -78,7 +80,13 @@ public class Player extends Sprite {
                 abilityTimeLeft--;
             } else {
                 abilityTimeLeft = 500;
+                // Checks for sprint ability to reset speed
+                if (currentAbility == 1) {
+                    speed = normalSpeed;
+                }
                 abilityCurrentlyActive[currentAbility] = false;
+                currentAbility = 100;
+
             }
         }
     }
@@ -115,11 +123,13 @@ public class Player extends Sprite {
         //Runtime errors adding ability buttons (number keys)
         if (Gdx.input.isKeyPressed(Input.Keys.NUM_1) && abilityAvailable[0] && !abilityCurrentlyActive[0]) {
             activateAbility(0);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_2) && abilityAvailable[0] && !abilityCurrentlyActive[0]){
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_2) && abilityAvailable[1] && !abilityCurrentlyActive[1]){
+            // Team25 - Sets speed to sprint speed due to sprint ability used
+            speed = sprintSpeed;
             activateAbility(1);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_3) && abilityAvailable[0] && !abilityCurrentlyActive[0]){
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_3) && abilityAvailable[2] && !abilityCurrentlyActive[2]){
             activateAbility(2);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && abilityAvailable[0] && !abilityCurrentlyActive[0]) {
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && abilityAvailable[3] && !abilityCurrentlyActive[3]) {
             activateAbility(3);
         }
 
@@ -132,8 +142,8 @@ public class Player extends Sprite {
         if(currentAbility == 100) {
             if(abilityAvailable[abilityNum]) {
                 currentAbility = abilityNum;
-                abilityAvailable[0] = false;
-                abilityCurrentlyActive[0] = true;
+                abilityAvailable[abilityNum] = false;
+                abilityCurrentlyActive[abilityNum] = true;
             }
         }
     }
@@ -144,6 +154,7 @@ public class Player extends Sprite {
             b2body.setLinearVelocity(0f, 0f);
             anim.play("idle");
         } else {
+            System.out.println(direction);
             b2body.setLinearVelocity(direction.x, direction.y);
             anim.play("run");
         }
