@@ -1,4 +1,3 @@
-
 package com.team5.game.Screens;
 
 import com.badlogic.gdx.Gdx;
@@ -19,20 +18,13 @@ import com.team5.game.MainGame;
 import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 
-public class MainMenuScreen implements Screen {
+public class LoadScreen implements Screen {
 
-    /*
-    MainMenuScreen is the class that renders the main menu
-    and transfers over to the PlayScreen or quits the application
-     */
+    //Game Reference
+    public MainGame game;
 
-    //Main Game Reference
-    MainGame game;
-
-    //Menu buttons
-    ImageButton playButton;
-    ImageButton quitButton;
-    ImageButton levelButton;
+    //Menu buttons for loading new or old game
+    ImageButton newButton, loadButton, backButton;
 
     Stage stage;
 
@@ -42,20 +34,25 @@ public class MainMenuScreen implements Screen {
     Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
 
     //Menu positions
-    Vector2 playPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
-    Vector2 quitPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
-    Vector2 levelPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
+    Vector2 newPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 65);
+    Vector2 loadPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 5);
+    Vector2 backPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
     Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
+
+    //NPC number
+    private int noNPCs;
 
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
-    private final int noNPCs = 75;
+
 
     //Reference
     private final CustomCamera camera;
 
-    public MainMenuScreen (final MainGame game){
+
+
+    public LoadScreen(final MainGame game, int noNPCs){
 
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
@@ -69,12 +66,10 @@ public class MainMenuScreen implements Screen {
 
         //Buttons
         setupButtons();
-
     }
 
     @Override
     public void show() {
-
     }
 
     @Override
@@ -94,7 +89,6 @@ public class MainMenuScreen implements Screen {
 
         stage.act(delta);
         stage.draw();
-
     }
 
     @Override
@@ -119,14 +113,12 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
-        this.dispose();
         stage.dispose();
         world.dispose();
         b2dr.dispose();
         click.dispose();
+        this.dispose();
     }
-
-    //Custom functions from here
 
     public void update(float delta){
         world.step(1/60f, 6, 2);
@@ -134,51 +126,48 @@ public class MainMenuScreen implements Screen {
         //Updates Camera
         camera.update();
     }
-    // Level addition
+
+
     void setupButtons(){
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
-        playButton = new ImageButton(new Image(new Texture("Sprites/Menu/PlayOff.png")).getDrawable());
-        levelButton = new ImageButton(new Image(new Texture("Sprites/Menu/LevelOff.png")).getDrawable());
-        quitButton = new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());
+        newButton= new ImageButton(new Image(new Texture("Sprites/Menu/NewOff.png")).getDrawable());
+        loadButton= new ImageButton(new Image(new Texture("Sprites/Menu/LoadOff.png")).getDrawable());
+        backButton= new ImageButton(new Image(new Texture("Sprites/Menu/BackOff.png")).getDrawable());
 
-        playButton.setPosition(playPos.x, playPos.y);
-        levelButton.setPosition(levelPos.x, levelPos.y);
-        quitButton.setPosition(quitPos.x, quitPos.y);
+        newButton.setPosition(newPos.x, newPos.y);
+        loadButton.setPosition(backPos.x, backPos.y);
+        backButton.setPosition(loadPos.x, loadPos.y);
 
-        playButton.setSize(90, 30);
-        levelButton.setSize(90, 30);
-        quitButton.setSize(90, 30);
+        newButton.setSize(90, 30);
+        loadButton.setSize(90, 30);
+        backButton.setSize(90, 30);
 
-        playButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/PlayOn.png")).getDrawable();
-        levelButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/LevelOn.png")).getDrawable();
-        quitButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/ExitOn.png")).getDrawable();
+        newButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/NewOn.png")).getDrawable();
+        loadButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/LoadOn.png")).getDrawable();
+        backButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/BackOn.png")).getDrawable();
 
-        stage.addActor(playButton);
-        stage.addActor(levelButton);
-        stage.addActor(quitButton);
+        stage.addActor(newButton);
+        stage.addActor(loadButton);
+        stage.addActor(backButton);
 
-        // Load screen added by Runtime Errors Team 25
-        playButton.addListener(new ClickListener(){
+        newButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new LoadScreen(game,noNPCs));
+                game.setScreen(new PlayScreen(game,noNPCs));
             }
         });
-
-        // Level screen added by Runtime Errors Team 25
-        levelButton.addListener(new ClickListener(){
+        loadButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new LevelScreen(game));
+                game.setScreen(new PlayScreen(game,noNPCs));
             }
         });
-
-        quitButton.addListener(new ClickListener(){
+        backButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                Gdx.app.exit();
+                game.setScreen(new MainMenuScreen(game));
             }
         });
     }
