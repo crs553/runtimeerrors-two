@@ -41,6 +41,9 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     //Audio
     Sound explosion = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/explosion.wav"));
 
+    //runtime errors addition
+    boolean slowed = false;
+
     public InfiltratorAIBehaviour(GameController gameController, Infiltrator infiltrator,
                                   NodeGraph graph, Node node) {
         super(infiltrator, graph, node);
@@ -65,6 +68,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
 
     @Override
     public void update(float delta) {
+        slowingability();
         if (waiting){
             wait(delta);
             npc.direction = Vector2.Zero;
@@ -76,10 +80,22 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
         //But only if it's away from the player.
         timer -= delta;
         if (timer <= 0){
+
             if (Vector2.dst(player.x, player.y, npc.x, npc.y) > distance){
                 npc.changeSkin();
                 timer = changeCooldown;
             }
+        }
+    }
+    //added by runtime errors
+    //calls the function to set slowed to true in the NCPAIBehaviourclass
+    public void slowingability() {
+        if (player.abilityCurrentlyActive[3] && Vector2.dst(player.x, player.y, npc.x, npc.y) < 100 && !slowed) {
+            super.decreaseInfiltratorSpeed();
+            slowed = true;
+        } else if (!player.abilityCurrentlyActive[3] && slowed) {
+            super.increaseInfiltratorSpeed();
+            slowed = false;
         }
     }
 

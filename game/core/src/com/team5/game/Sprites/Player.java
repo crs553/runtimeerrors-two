@@ -53,9 +53,12 @@ public class Player extends Sprite {
     // ADDED BY SECOND DEVELOPERS (RUNTIME ERRORS, TEAM 25)
     //Player Abilities
     //ability at index 0 is system invulnerability - goes to keyboard num 1
+    //ability at index 1 is sprint - goes to keyboard num 2
+    //ability at index 2 is teleport - goes to keyboard num 3
+    //ability at index 3 is slow infiltrators - goes to keyboard num 4
     private int currentAbility = 100; //index for arrays below, 100 means none active
-    private boolean[] abilityAvailable = new boolean[] {true,true,true,true}; //(One use)
-    public boolean[] abilityCurrentlyActive = new boolean[] {false,false,false,false};
+    private boolean[] abilityAvailable = new boolean[] {true,true,true,true,true}; //(One use)
+    public boolean[] abilityCurrentlyActive = new boolean[] {false,false,false,false,false};
     int abilityTimeLeft = 500;
 
 
@@ -134,6 +137,8 @@ public class Player extends Sprite {
             activateAbility(2);
         } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_4) && abilityAvailable[3] && !abilityCurrentlyActive[3]) {
             activateAbility(3);
+        } else if (Gdx.input.isKeyPressed(Input.Keys.NUM_5) && abilityAvailable[4] && !abilityCurrentlyActive[4]) {
+            activateAbility(4);
         }
 
 

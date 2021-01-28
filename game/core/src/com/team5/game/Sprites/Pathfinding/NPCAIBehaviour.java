@@ -22,6 +22,9 @@ public class NPCAIBehaviour {
     int maxSpeed = 80;
     int minSpeed = 30;
     float speed;
+    //Runtime errors addition
+    boolean slowed = false;
+
 
     //Pathfinding
     NodeGraph graph;
@@ -47,7 +50,6 @@ public class NPCAIBehaviour {
         this.npc = npc;
         this.graph = graph;
         currentNode = node;
-
         random = new Random();
         speed = random.nextInt(maxSpeed - minSpeed);
         speed += minSpeed;
@@ -72,6 +74,15 @@ public class NPCAIBehaviour {
 
         target = path.get(currentIndex).randomPos();
     }
+    //added by runtime errors
+    //These tell the ai to go slower if they are an infiltrator
+    public void decreaseInfiltratorSpeed() {
+        slowed = true;
+    }
+    public void increaseInfiltratorSpeed() {
+        slowed = false;
+    }
+
 
     //Moves the npc towards their target.
     public Vector2 move(float x, float y){
@@ -97,7 +108,12 @@ public class NPCAIBehaviour {
         Vector2 resultant = new Vector2(target.x - x,
                 target.y - y).nor();
 
-        return new Vector2(resultant.x * speed, resultant.y * speed);
+        //edited by runtime errors
+        if(!slowed) {
+            return new Vector2(resultant.x * speed, resultant.y * speed);
+        } else {
+            return new Vector2(resultant.x*10,resultant.y*10);
+        }
     }
 
     //Makes the npc wait for a certain amount of time
