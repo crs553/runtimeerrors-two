@@ -32,16 +32,12 @@ public class PauseMenu {
     Image pauseImage;
     ImageButton menuButton;
 
-    // Added by Runtime Errors Team 25
-    ImageButton saveButton;
-
     //Audio
     public Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
 
     //Element Positioning
     Vector2 pauseOffset = new Vector2(-112, -75);
-    Vector2 menuOffset = new Vector2(-48, -64); // Team 25 - changed the manu layout
-    Vector2 saveOffset = new Vector2(-48, -30);
+    Vector2 menuOffset = new Vector2(-48, -48);
 
     public PauseMenu(MainGame game, PlayScreen screen){
         this.game = game;
@@ -69,24 +65,8 @@ public class PauseMenu {
             }
         });
 
-        // Team 25 - Save button
-        saveButton = new ImageButton(new Image(new Texture("Sprites/Menu/SaveOff.png")).getDrawable());
-        saveButton.setPosition(camera.cam.position.x + saveOffset.x,
-                camera.cam.position.y + saveOffset.y);
-        saveButton.setSize(96, 32);
-        saveButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/SaveOn.png")).getDrawable();
-
-        saveButton.addListener(new ClickListener(){
-            public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
-                game.setScreen(new MainMenuScreen(game));
-            }
-        });
-
         stage.addActor(pauseImage);
         stage.addActor(menuButton);
-        stage.addActor(saveButton); // Team 25 save button
-
     }
 
     public void update(){
@@ -94,9 +74,6 @@ public class PauseMenu {
                 camera.cam.position.y + pauseOffset.y);
         menuButton.setPosition(camera.cam.position.x + menuOffset.x,
                 camera.cam.position.y + menuOffset.y);
-
-        saveButton.setPosition(camera.cam.position.x + saveOffset.x,
-                camera.cam.position.y + saveOffset.y);
     }
 
     public void draw(float delta){

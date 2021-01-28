@@ -159,15 +159,12 @@ public class MainMenuScreen implements Screen {
         stage.addActor(levelButton);
         stage.addActor(quitButton);
 
-        // Load screen added by Runtime Errors Team 25
         playButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new LoadScreen(game,noNPCs));
+                game.setScreen(new PlayScreen(game,noNPCs));//change runtime errors
             }
         });
-
-        // Level screen added by Runtime Errors Team 25
         levelButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
