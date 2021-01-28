@@ -75,6 +75,9 @@ public class Player extends Sprite {
 
         //Runtime Errors edit
         //Manages ability cooldown
+        if(currentAbility == 2) {
+            abilityTimeLeft = 1;
+        }
         if(currentAbility != 100) {
             if (abilityTimeLeft > 0) {
                 abilityTimeLeft--;
@@ -139,6 +142,7 @@ public class Player extends Sprite {
     //Created by Runtime Errors
     //Activates the abilities
     private void activateAbility(int abilityNum) {
+        System.out.print("activate" + abilityNum);
         if(currentAbility == 100) {
             if(abilityAvailable[abilityNum]) {
                 currentAbility = abilityNum;
@@ -146,6 +150,12 @@ public class Player extends Sprite {
                 abilityCurrentlyActive[abilityNum] = true;
             }
         }
+    }
+
+    public void deactivateTeleportAbility() {
+        abilityCurrentlyActive[2] = false;
+        currentAbility = 100;
+        abilityTimeLeft = 500;
     }
 
     //Deciding which animation will be played each frame based on input

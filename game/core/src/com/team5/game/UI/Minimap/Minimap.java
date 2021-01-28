@@ -72,7 +72,7 @@ public class Minimap {
         }
     }
 
-    public void draw(float delta){
+    public void draw(float delta) {
         stage.act(delta);
         stage.draw();
     }

@@ -98,10 +98,10 @@ public class GameController {
     public void drawPlayer(SpriteBatch batch){
         player.draw(batch);
     }
-
+    //edited by runtime errors
     public void update(float delta){
         checkSystems();
-
+        checkTeleports();
         //Moves player
         player.update();
 
@@ -111,6 +111,12 @@ public class GameController {
         }
         for (Infiltrator bad : infiltrators){
             bad.update(delta);
+        }
+    }
+    //added by runtime errors
+    void checkTeleports() {
+        if(teleporters.updateTeleporterAbility(player.abilityCurrentlyActive)) {
+            player.deactivateTeleportAbility();
         }
     }
 

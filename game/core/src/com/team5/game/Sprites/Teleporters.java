@@ -81,6 +81,17 @@ public class Teleporters {
         screen.stage.addActor(teleporter);
     }
 
+    //added by runtime errors
+    public boolean updateTeleporterAbility(boolean[] abilitiesActive) {
+        if(abilitiesActive[2]) {
+            screen.minimapOn();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public Vector2 getTeleporter(String key){
         return positions.get(key);
     }
