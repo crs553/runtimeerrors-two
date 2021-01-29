@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.tomgrill.gdxtesting.AssetTests" tests="16" skipped="0" failures="1" errors="0" timestamp="2021-01-28T23:57:32" hostname="Lionel" time="0.26">
+<testsuite name="de.tomgrill.gdxtesting.AssetTests" tests="38" skipped="0" failures="0" errors="0" timestamp="2021-01-29T11:04:13" hostname="Lionel" time="0.614">
   <properties/>
-  <testcase name="HardOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.001"/>
-  <testcase name="EasyOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.001">
-    <failure message="java.lang.AssertionError: This test will only pass when EasyOn.png is detected." type="java.lang.AssertionError">java.lang.AssertionError: This test will only pass when EasyOn.png is detected.
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at de.tomgrill.gdxtesting.AssetTests.EasyOnExists(AssetTests.java:101)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at de.tomgrill.gdxtesting.GdxTestRunner.render(GdxTestRunner.java:59)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:129)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:96)
-</failure>
-  </testcase>
+  <testcase name="ExitOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.001"/>
+  <testcase name="CursorExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="HardOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="EasyOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="MusicExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MapExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="LoadOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="LevelOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="LoadOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MissionFailedExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="TileSetTsxExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="BackOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="SoundClickExits" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="TileSetTwoPngExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="SoundWrongExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="TextureAtlasExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MissionCompleteExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="NewOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SaveOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="SoundPassExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="TileMapTmxExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MenuOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MenuOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="PlayOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="PauseMenuExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="MedOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="LevelOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="EasyOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SaveOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="NewOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="MedOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="TexturePngExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="ExitOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="PlayOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TexturePackExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TitleExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="HardOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <testcase name="SoundExplosionExits" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

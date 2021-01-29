@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">16</div>
+<div class="counter">38</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.002s</div>
+<div class="counter">0.001s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">93%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,40 +61,10 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
-</li>
-<li>
-<a href="#tab1">Tests</a>
+<a href="#tab0">Tests</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="EasyOnExists"></a>
-<h3 class="failures">EasyOnExists</h3>
-<span class="code">
-<pre>java.lang.AssertionError: This test will only pass when EasyOn.png is detected.
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at de.tomgrill.gdxtesting.AssetTests.EasyOnExists(AssetTests.java:101)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at de.tomgrill.gdxtesting.GdxTestRunner.render(GdxTestRunner.java:59)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:129)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:96)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -105,14 +75,34 @@
 </tr>
 </thead>
 <tr>
+<td class="success">BackOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CursorExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">EasyOffExists</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">EasyOnExists</td>
-<td class="failures">0.001s</td>
-<td class="failures">failed</td>
+<td class="success">EasyOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">ExitOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">ExitOnExists</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">HardOffExists</td>
@@ -121,7 +111,32 @@
 </tr>
 <tr>
 <td class="success">HardOnExists</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">LevelOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">LevelOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">LoadOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">LoadOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">MapExists</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -135,7 +150,62 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">MenuOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">MenuOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">MissionCompleteExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">MissionFailedExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">MusicExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">NewOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">NewOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">PauseMenuExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">PlayOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">PlayOnExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">SaveOffExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">SaveOnExists</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
@@ -165,6 +235,11 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">TexturePackExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">TexturePngExists</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
@@ -184,6 +259,11 @@
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
+<tr>
+<td class="success">TitleExists</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
 </table>
 </div>
 </div>
@@ -194,7 +274,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.4.1</a> at 28 Jan 2021, 23:57:33</p>
+<a href="http://www.gradle.org">Gradle 5.4.1</a> at 29 Jan 2021, 11:04:14</p>
 </div>
 </div>
 </body>
