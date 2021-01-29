@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.AssetTests" tests="16" skipped="0" failures="1" errors="0" timestamp="2021-01-28T23:57:32" hostname="Lionel" time="0.26">
+  <properties/>
+  <testcase name="HardOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.001"/>
+  <testcase name="EasyOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.001">
+    <failure message="java.lang.AssertionError: This test will only pass when EasyOn.png is detected." type="java.lang.AssertionError">java.lang.AssertionError: This test will only pass when EasyOn.png is detected.
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at de.tomgrill.gdxtesting.AssetTests.EasyOnExists(AssetTests.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at de.tomgrill.gdxtesting.GdxTestRunner.render(GdxTestRunner.java:59)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:129)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:96)
+</failure>
+  </testcase>
+  <testcase name="MusicExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TileSetTsxExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SoundClickExits" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TileSetTwoPngExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SoundWrongExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TextureAtlasExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SoundPassExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TileMapTmxExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MedOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="EasyOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="MedOnExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="TexturePngExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="HardOffExists" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <testcase name="SoundExplosionExits" classname="de.tomgrill.gdxtesting.AssetTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

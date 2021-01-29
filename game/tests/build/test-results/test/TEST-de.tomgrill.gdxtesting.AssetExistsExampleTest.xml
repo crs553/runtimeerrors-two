@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.tomgrill.gdxtesting.AssetExistsExampleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-28T11:43:09" hostname="Lionel" time="0.001">
-  <properties/>
-  <testcase name="badlogicLogoFileExists" classname="de.tomgrill.gdxtesting.AssetExistsExampleTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
