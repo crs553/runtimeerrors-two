@@ -9,7 +9,7 @@ public class SystemChecker {
     the game can end when they have broken as many systems as needed.
      */
 
-    int systemsBroken;
+    int systemsBroken = 0;
 
     int maxSystems = 15;
 
