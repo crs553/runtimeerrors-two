@@ -26,7 +26,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     float changeCooldown = 15f;
     float timer = changeCooldown;
 
-    float distance = 50;
+    float distance = 100;
 
     //Systems
     System goalSystem;
@@ -90,7 +90,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     //added by runtime errors
     //calls the function to set slowed to true in the NCPAIBehaviourclass
     public void slowingability() {
-        if (player.abilityCurrentlyActive[3] && Vector2.dst(player.x, player.y, npc.x, npc.y) < 100 && !slowed) {
+        if (player.abilityCurrentlyActive[3] && Vector2.dst(player.x, player.y, npc.x, npc.y) < distance && !slowed) {
             super.decreaseInfiltratorSpeed();
             slowed = true;
         } else if (!player.abilityCurrentlyActive[3] && slowed) {

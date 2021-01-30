@@ -56,7 +56,7 @@ public class Player extends Sprite {
     //ability at index 1 is sprint - goes to keyboard num 2
     //ability at index 2 is teleport - goes to keyboard num 3
     //ability at index 3 is slow infiltrators - goes to keyboard num 4
-    private int currentAbility = 100; //index for arrays below, 100 means none active
+    public int currentAbility = 100; //index for arrays below, 100 means none active
     private boolean[] abilityAvailable = new boolean[] {true,true,true,true,true}; //(One use)
     public boolean[] abilityCurrentlyActive = new boolean[] {false,false,false,false,false};
     int abilityTimeLeft = 500;
@@ -163,6 +163,12 @@ public class Player extends Sprite {
         abilityTimeLeft = 500;
     }
 
+    public void should() {
+        if(currentAbility == 4) {
+
+        }
+    }
+
     //Deciding which animation will be played each frame based on input
     void handleAnimations(Vector2 direction){
         if (direction.isZero(0.01f)){
@@ -198,11 +204,24 @@ public class Player extends Sprite {
     public int getHealth(){
         return health.getHealth();
     }
+    public void printit(String thing) {
+        System.out.println(thing);
+    }
+    public void printit(float thing) {
+        System.out.println(thing);
+    }
 
     public void draw(SpriteBatch batch){
         batch.draw(currentSprite, x, y);
         if (health.getHealing()) {
             health.draw(batch, x-2, y-2);
+        }
+    }
+    public boolean shouldCreateMotionTrap(boolean motionTrapExists) {
+        if(abilityCurrentlyActive[4] && !motionTrapExists) {
+            return true;
+        } else {
+            return false;
         }
     }
 

@@ -13,41 +13,31 @@ import com.team5.game.MainGame;
 
 public class Trap extends Rectangle {
 
-    Texture defaultSkin = new Texture("Sprites/TexturePack/motion_sensor.png");
-    Texture alertSkin = new Texture("Sprites/TexturePack/motion_sensor_alert.png");
+    private Texture defaultSkin = new Texture("Sprites/TexturePack/motion_sensor.png");
+    private Texture alertSkin = new Texture("Sprites/TexturePack/motion_sensor_alert.png");
 
-    boolean exists = true;
-    boolean alerted = false;
+    private boolean alerted = false;
 
     public Trap(float x, float y) {
         super(x,y,48,48);
+        this.x = x - 24;
+        this.y = y - 24;
     }
-    public boolean shouldDraw(boolean mapVisible) {
-        if(exists && !mapVisible) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public void render(SpriteBatch batch) {
+
+    public Texture getSkin() {
         if (alerted) {
-            batch.draw(alertSkin, super.x, super.y);
+            return alertSkin;
         } else {
-            batch.draw(defaultSkin,super.x,super.y);
+            return defaultSkin;
         }
     }
 
-    public boolean checkIfOver(int abilityTimeLeft,boolean[] abilitiesActive) {
-        if (abilitiesActive[4]) {
-            if (abilityTimeLeft <= 1) {
-                exists = false;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+    public void alert() {
+        alerted = true;
     }
+    public void resetAlert() {
+        alerted = false;
+    }
+
 
 }

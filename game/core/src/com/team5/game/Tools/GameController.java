@@ -13,6 +13,7 @@ import com.team5.game.Sprites.NPC;
 import com.team5.game.Sprites.Pathfinding.Node;
 import com.team5.game.Sprites.Pathfinding.NodeGraph;
 import com.team5.game.Sprites.Pathfinding.System;
+import com.team5.game.Sprites.Pathfinding.Trap;
 import com.team5.game.Sprites.Player;
 import com.team5.game.Sprites.Teleporters;
 
@@ -33,6 +34,8 @@ public class GameController {
     int noNPCs;
     int noInfiltrators = 8;
 
+    boolean motionTrapExists = false;
+    Trap motionTrap;
 
 
     public GameController(MainGame game, PlayScreen screen){
@@ -83,7 +86,17 @@ public class GameController {
         }
     }
 
+    public void updateTrapState(Player player) {
+        if (!player.abilityCurrentlyActive[4] ) {
+            motionTrapExists = false;
+        }
+    }
+
     public void draw(SpriteBatch batch){
+
+        if(motionTrapExists) {
+            batch.draw(motionTrap.getSkin(),motionTrap.x,motionTrap.y);
+        }
 
         graph.drawSystems(batch);
 
@@ -100,6 +113,15 @@ public class GameController {
     }
     //edited by runtime errors
     public void update(float delta){
+        if(motionTrapExists) {
+            updateTrapAlert();
+        }
+        updateTrapState(player);
+        if(player.shouldCreateMotionTrap(motionTrapExists)) {
+            motionTrap = new Trap(player.x,player.y);
+            motionTrapExists = true;
+        }
+
         checkSystems();
         checkTeleports();
         //Moves player
@@ -113,12 +135,27 @@ public class GameController {
             bad.update(delta);
         }
     }
-    //added by runtime errors
     void checkTeleports() {
         if(teleporters.updateTeleporterAbility(player.abilityCurrentlyActive)) {
             player.deactivateTeleportAbility();
         }
     }
+
+    //Added by runtime errors
+    void updateTrapAlert() {
+        boolean found = false;
+        for (Infiltrator bad : infiltrators) {
+            if(motionTrap.contains(bad.x,bad.y)) {
+                found = true;
+            }
+        }
+        if(found) {
+            motionTrap.alert();
+        } else {
+            motionTrap.resetAlert();
+        }
+    }
+
 
     void checkSystems(){
         if (systemChecker.allSystemsBroken()){
