@@ -39,9 +39,6 @@ public class LoadScreen implements Screen {
     Vector2 backPos = new Vector2(Constants.CAMERA_WIDTH/2-48, 35);
     Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
 
-    //NPC number
-    private int noNPCs;
-
     //Colliders
     private final World world;
     private final Box2DDebugRenderer b2dr;
@@ -52,7 +49,7 @@ public class LoadScreen implements Screen {
 
 
 
-    public LoadScreen(final MainGame game, int noNPCs){
+    public LoadScreen(final MainGame game){
 
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
@@ -155,13 +152,13 @@ public class LoadScreen implements Screen {
         newButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new PlayScreen(game,noNPCs));
+                game.setScreen(new PlayScreen(game));
             }
         });
         loadButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
-                game.setScreen(new PlayScreen(game,noNPCs));
+                game.setScreen(new PlayScreen(game));
             }
         });
         backButton.addListener(new ClickListener(){
