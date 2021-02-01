@@ -163,12 +163,6 @@ public class Player extends Sprite {
         abilityTimeLeft = 500;
     }
 
-    public void should() {
-        if(currentAbility == 4) {
-
-        }
-    }
-
     //Deciding which animation will be played each frame based on input
     void handleAnimations(Vector2 direction){
         if (direction.isZero(0.01f)){

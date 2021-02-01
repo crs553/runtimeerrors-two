@@ -68,7 +68,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
 
     @Override
     public void update(float delta) {
-        slowingability();
+        slowingAbility();
         if (waiting){
             wait(delta);
             npc.direction = Vector2.Zero;
@@ -89,7 +89,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     }
     //added by runtime errors
     //calls the function to set slowed to true in the NCPAIBehaviourclass
-    public void slowingability() {
+    public void slowingAbility() {
         if (player.abilityCurrentlyActive[3] && Vector2.dst(player.x, player.y, npc.x, npc.y) < distance && !slowed) {
             super.decreaseInfiltratorSpeed();
             slowed = true;
