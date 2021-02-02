@@ -59,7 +59,10 @@ public class PlayScreen implements Screen {
     public CustomCamera camera;
     public GameController gameController;
 
-    public PlayScreen(MainGame game){
+    // Team 25 - Load/Save state
+    public boolean loadGame;
+
+    public PlayScreen(MainGame game, boolean loadGame){
         this.game = game;
 
         //Tilemap
@@ -79,7 +82,7 @@ public class PlayScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         //Game Controller
-        gameController = new GameController(game, this);
+        gameController = new GameController(game, this, loadGame);
         camera.follow(gameController.getPlayer());
 
         //Collisions for TileMap

@@ -33,5 +33,8 @@ public class Brig {
     public boolean allCaught(){
         return prisoners>=8;
     }
+    public int getPrisoners(){
+        return prisoners;
+    }
 
 }

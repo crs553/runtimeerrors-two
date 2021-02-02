@@ -1,6 +1,7 @@
 package com.team5.game.UI;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
@@ -13,6 +14,7 @@ import com.team5.game.MainGame;
 import com.team5.game.Screens.MainMenuScreen;
 import com.team5.game.Screens.PlayScreen;
 import com.team5.game.Tools.CustomCamera;
+import com.team5.game.Tools.GameController;
 
 public class PauseMenu {
 
@@ -34,13 +36,14 @@ public class PauseMenu {
 
     // Added by Runtime Errors Team 25
     ImageButton saveButton;
+    Preferences prefs = Gdx.app.getPreferences("Save File");
 
     //Audio
     public Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
 
     //Element Positioning
     Vector2 pauseOffset = new Vector2(-112, -75);
-    Vector2 menuOffset = new Vector2(-48, -64); // Team 25 - changed the manu layout
+    Vector2 menuOffset = new Vector2(-48, -64); // Team 25 - changed the menu layout
     Vector2 saveOffset = new Vector2(-48, -30);
 
     public PauseMenu(MainGame game, PlayScreen screen){
@@ -79,6 +82,15 @@ public class PauseMenu {
         saveButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
+                prefs.putInteger("level", game.getLevel());
+                prefs.putInteger("npcs", 0);
+                prefs.putInteger("infiltrators", 0);
+                prefs.putInteger("prisoners", 0);
+                prefs.putFloat("playerx", 0);
+                prefs.putFloat("playery", 0);
+                prefs.putInteger("health", 0);
+
+                prefs.flush();
                 game.setScreen(new MainMenuScreen(game));
             }
         });

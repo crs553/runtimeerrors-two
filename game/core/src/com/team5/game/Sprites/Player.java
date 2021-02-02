@@ -147,7 +147,6 @@ public class Player extends Sprite {
     //Created by Runtime Errors
     //Activates the abilities
     private void activateAbility(int abilityNum) {
-        System.out.print("activate" + abilityNum);
         if(currentAbility == 100) {
             if(abilityAvailable[abilityNum]) {
                 currentAbility = abilityNum;
@@ -169,7 +168,6 @@ public class Player extends Sprite {
             b2body.setLinearVelocity(0f, 0f);
             anim.play("idle");
         } else {
-            System.out.println(direction);
             b2body.setLinearVelocity(direction.x, direction.y);
             anim.play("run");
         }

@@ -1,5 +1,7 @@
 package com.team5.game.Tools;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -31,15 +33,33 @@ public class GameController {
     Array<Infiltrator> infiltrators;
 
     //NPC numbers
-    int noNPCs;
-    int noInfiltrators = 8;
+    public int noNPCs;
+    public int noInfiltrators = 8;
+
+    // Team 25 - Save/Load
+    Preferences prefs = Gdx.app.getPreferences("Save File");
+    int savedNPCs = 0;
+    int savedLevel = 0;
+    int savedInfiltrators = 0;
 
     boolean motionTrapExists = false;
     Trap motionTrap;
 
 
-    public GameController(MainGame game, PlayScreen screen){
+    public GameController(MainGame game, PlayScreen screen, boolean loadGame){
         this.game = game;
+
+        // Runtime Errors Save/Load setting level
+        if (loadGame){
+            int savedNPCs = prefs.getInteger("npcs",0);
+            int savedInfiltrators = prefs.getInteger("infiltrators",0);
+
+            // if load is empty, returns 0, uses current level selected.
+            int savedLevel = prefs.getInteger("level",0);
+            if (savedLevel != 0){
+                game.setLevel(savedLevel);
+            }
+        }
 
         //runtime errors addition level setter
         int leverSetter = game.getLevel();
@@ -56,6 +76,14 @@ public class GameController {
             this.noInfiltrators = 8;
         }
 
+        // Runtime Errors Save/Load setting NPCs/Infiltrators
+
+        if (savedNPCs != 0){
+            this.noNPCs = savedNPCs;
+        }
+        if (savedInfiltrators != 0){
+            this.noInfiltrators = savedInfiltrators;
+        }
 
         //Player
         player = new Player(game, screen.getWorld());
@@ -177,6 +205,13 @@ public class GameController {
 
     public Brig getBrig(){
         return brig;
+    }
+
+    public int getNoNPCs(){
+        return noNPCs;
+    }
+    public int getNoInfiltrators(){
+        return noInfiltrators;
     }
 
     public void dispose(){
