@@ -47,7 +47,9 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     //runtime errors addition
     //where index 0 is sprint
     //and index 1 is quick sabotage
-    boolean[] abilitiesAvailable = {true,true};
+    private boolean[] abilitiesAvailable = {true,true};
+    private boolean quicksabotage = false;
+
 
     public InfiltratorAIBehaviour(GameController gameController, Infiltrator infiltrator,
                                   NodeGraph graph, Node node) {
@@ -91,6 +93,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
                 timer = changeCooldown;
             }
         }
+        //added by runtime errors
         if(abilitiesAvailable[0]) {
             if (Vector2.dst(player.x, player.y, npc.x, npc.y) < distance-50) {
                 activateAbility(0, 3);
@@ -114,7 +117,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     public void wait(float delta) {
         //Runtime errors edit
         if(!player.abilityCurrentlyActive[0]) {
-            if (waitTime <= 0f || goalSystem.getBroken()) {
+            if (waitTime <= 0f || goalSystem.getBroken() || quicksabotage) {
                 if (breaking && !goalSystem.getBroken()) {
                     explosion.play(0.2f);
                     goalSystem.destroy();
@@ -125,7 +128,10 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
 
                 if (random.nextFloat() < breakOdds) {
                     breaking = true;
+                    //edited by runtime errors
+                    quicksabotage = false;
                     newSystemTarget();
+                    activateAbility(1,200);
                 } else {
                     breaking = false;
                     newTarget();
@@ -135,13 +141,17 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
             }
         }
     }
-    //runtime errors addtion
+    //runtime errors addition
     public void activateAbility(int index,int probability) {
         if(abilitiesAvailable[index]) {
             int randomGen = (int) (Math.random() * 1000);
             if (randomGen <= probability) {
                 abilitiesAvailable[index] = false;
-                super.activateAbility(index);
+                if(index == 0) {
+                    super.activateAbility(index);
+                } else if(index == 1) {
+                    quicksabotage = true;
+                }
             }
         }
     }
