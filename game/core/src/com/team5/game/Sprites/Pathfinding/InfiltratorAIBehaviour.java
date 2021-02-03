@@ -44,6 +44,11 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
     //runtime errors addition
     boolean slowed = false;
 
+    //runtime errors addition
+    //where index 0 is sprint
+    //and index 1 is quick sabotage
+    boolean[] abilitiesAvailable = {true,true};
+
     public InfiltratorAIBehaviour(GameController gameController, Infiltrator infiltrator,
                                   NodeGraph graph, Node node) {
         super(infiltrator, graph, node);
@@ -86,6 +91,11 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
                 timer = changeCooldown;
             }
         }
+        if(abilitiesAvailable[0]) {
+            if (Vector2.dst(player.x, player.y, npc.x, npc.y) < distance-50) {
+                activateAbility(0, 3);
+            }
+        }
     }
     //added by runtime errors
     //calls the function to set slowed to true in the NCPAIBehaviourclass
@@ -122,6 +132,16 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
                 }
             } else {
                 waitTime -= delta;
+            }
+        }
+    }
+    //runtime errors addtion
+    public void activateAbility(int index,int probability) {
+        if(abilitiesAvailable[index]) {
+            int randomGen = (int) (Math.random() * 1000);
+            if (randomGen <= probability) {
+                abilitiesAvailable[index] = false;
+                super.activateAbility(index);
             }
         }
     }

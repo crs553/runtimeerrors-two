@@ -19,12 +19,13 @@ public class NPCAIBehaviour {
     NPC npc;
 
     //Movement
-    int maxSpeed = 80;
+    int maxSpeed = 60;
     int minSpeed = 30;
     float speed;
     //Runtime errors addition
     boolean slowed = false;
-
+    boolean sprint = false;
+    float sprintTimer = 300;
 
     //Pathfinding
     NodeGraph graph;
@@ -109,10 +110,23 @@ public class NPCAIBehaviour {
                 target.y - y).nor();
 
         //edited by runtime errors
-        if(!slowed) {
-            return new Vector2(resultant.x * speed, resultant.y * speed);
-        } else {
+        if(slowed) {
             return new Vector2(resultant.x*10,resultant.y*10);
+        } else if(sprint) {
+            sprintTimer -= 1;
+            if(sprintTimer <= 0) {
+                sprint = false;
+            }
+            return new Vector2(resultant.x * 100, resultant.y * 100);
+        } else {
+            return new Vector2(resultant.x * speed, resultant.y * speed);
+        }
+    }
+
+    //added by runtime erros
+    public void activateAbility(int index) {
+        if(index == 0) {
+            sprint = true;
         }
     }
 
