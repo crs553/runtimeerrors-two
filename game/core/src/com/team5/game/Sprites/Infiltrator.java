@@ -33,7 +33,7 @@ public class Infiltrator extends NPC{
     GameController gameController;
 
     //States
-    boolean caught = false;
+    public boolean caught = false;
     boolean imprisoned = false;
 
     //AI reference
@@ -47,6 +47,7 @@ public class Infiltrator extends NPC{
     //Audio
     Sound pass = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/pass.wav"));
 
+    // Runtime Errors - Added caught parameter when constructed for loading already caught infiltrators
     public Infiltrator(MainGame game, PlayScreen screen, GameController gameController, World world,
                        NodeGraph graph, Node node, Vector2 position) {
         super(screen, world, graph, node, position);
@@ -126,10 +127,7 @@ public class Infiltrator extends NPC{
             public void clicked(InputEvent event, float x, float y){
                 if (!caught) {
                     pass.play(0.3f);
-                    caught = true;
-                    anim.play("caught");
-                    outlineButton.getStyle().imageOver =
-                            new Image(Constants.ATLAS.findRegion("Empty")).getDrawable();
+                    beenCaught();
                 }
             }
         });
@@ -156,6 +154,12 @@ public class Infiltrator extends NPC{
         outlineButton.getStyle().imageOver = outlineImage.getDrawable();
     }
 
+    public void beenCaught(){
+        caught = true;
+        anim.play("caught");
+        outlineButton.getStyle().imageOver =
+                new Image(Constants.ATLAS.findRegion("Empty")).getDrawable();
+    }
 
     public void dispose(){
         pass.dispose();

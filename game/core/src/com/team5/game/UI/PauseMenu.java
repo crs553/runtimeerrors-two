@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.team5.game.MainGame;
 import com.team5.game.Screens.MainMenuScreen;
 import com.team5.game.Screens.PlayScreen;
+import com.team5.game.Sprites.Player;
+import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 import com.team5.game.Tools.GameController;
 
@@ -37,6 +39,8 @@ public class PauseMenu {
     // Added by Runtime Errors Team 25
     ImageButton saveButton;
     Preferences prefs = Gdx.app.getPreferences("Save File");
+    public GameController gameController;
+    public Player player;
 
     //Audio
     public Sound click = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/click.wav"));
@@ -50,10 +54,10 @@ public class PauseMenu {
         this.game = game;
         camera = screen.camera;
 
-        setup();
+        setup(screen);
     }
 
-    void setup(){
+    void setup(final PlayScreen screen){
         stage = new Stage(camera.port);
         pauseImage = new Image(new Texture("Sprites/Menu/Pause Menu.png"));
         pauseImage.setPosition(camera.cam.position.x + pauseOffset.x,
@@ -83,13 +87,10 @@ public class PauseMenu {
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f, 1.5f, 0);
                 prefs.putInteger("level", game.getLevel());
-                prefs.putInteger("npcs", 0);
-                prefs.putInteger("infiltrators", 0);
-                prefs.putInteger("prisoners", 0);
-                prefs.putFloat("playerx", 0);
-                prefs.putFloat("playery", 0);
-                prefs.putInteger("health", 0);
-
+                prefs.putInteger("prisoners", screen.gameController.getBrig().getPrisoners());
+                prefs.putFloat("playerx", screen.gameController.getPlayer().x);
+                prefs.putFloat("playery", screen.gameController.getPlayer().y);
+                prefs.putInteger("health", screen.gameController.getPlayer().getHealth());
                 prefs.flush();
                 game.setScreen(new MainMenuScreen(game));
             }
@@ -98,6 +99,10 @@ public class PauseMenu {
         stage.addActor(pauseImage);
         stage.addActor(menuButton);
         stage.addActor(saveButton); // Team 25 save button
+
+    }
+
+    public void updateSaveValues(int e){
 
     }
 

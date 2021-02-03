@@ -138,7 +138,6 @@ public class MainMenuScreen implements Screen {
     void setupButtons(){
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
-
         playButton = new ImageButton(new Image(new Texture("Sprites/Menu/PlayOff.png")).getDrawable());
         levelButton = new ImageButton(new Image(new Texture("Sprites/Menu/LevelOff.png")).getDrawable());
         quitButton = new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());

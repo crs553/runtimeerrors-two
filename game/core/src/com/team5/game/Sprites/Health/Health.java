@@ -72,6 +72,10 @@ public class Health {
     public int getHealth(){
         return currentHealth;
     }
+    // Set Health added by Runtime Errors
+    public void setHealth(int newHealth){
+        currentHealth = newHealth;
+    }
 
     public void increaseHealth(){
         currentHealth++;

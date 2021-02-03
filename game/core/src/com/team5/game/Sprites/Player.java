@@ -196,6 +196,11 @@ public class Player extends Sprite {
     public int getHealth(){
         return health.getHealth();
     }
+
+    // SetHealth added by Runtime Errors
+    public void setHealth(int newHealth){  health.setHealth(newHealth);
+    }
+
     public void printit(String thing) {
         System.out.println(thing);
     }
