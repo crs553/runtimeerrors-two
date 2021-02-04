@@ -154,14 +154,14 @@ public class LevelScreen implements Screen {
 
         easyButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setLevel(1);
                 game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         mediumButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setLevel(2);
                 game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
@@ -170,7 +170,7 @@ public class LevelScreen implements Screen {
             public void clicked(InputEvent event, float x, float y){
                 game.setScreen(new MainMenuScreen(game));
                 game.setLevel(3);
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
             }
         });
     }

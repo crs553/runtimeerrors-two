@@ -27,4 +27,7 @@ public class Constants {
 
     //MAX_HEALTH is the maximum health of the player.
     public static final int MAX_HEALTH = 3;
+
+    //added by runtime errors
+    public static int volumeMultipler = 1;
 }

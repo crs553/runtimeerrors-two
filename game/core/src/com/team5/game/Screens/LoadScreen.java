@@ -151,19 +151,19 @@ public class LoadScreen implements Screen {
 
         newButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game,false));
             }
         });
         loadButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game,true));
             }
         });
         backButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new MainMenuScreen(game));
             }
         });

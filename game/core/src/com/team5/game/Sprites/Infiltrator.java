@@ -126,7 +126,7 @@ public class Infiltrator extends NPC{
         outlineButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
                 if (!caught) {
-                    pass.play(0.3f);
+                    pass.play(0.3f*Constants.volumeMultipler);
                     beenCaught();
                 }
             }

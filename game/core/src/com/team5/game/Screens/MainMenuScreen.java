@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.sun.org.apache.bcel.internal.Const;
 import com.team5.game.MainGame;
 import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
@@ -29,10 +30,14 @@ public class MainMenuScreen implements Screen {
     //Main Game Reference
     MainGame game;
 
+    //added by runtime errors
+    int currentMuteButton = 0;
+
     //Menu buttons
     ImageButton playButton;
     ImageButton quitButton;
     ImageButton levelButton;
+    ImageButton muteButton;
 
     Stage stage;
 
@@ -138,9 +143,24 @@ public class MainMenuScreen implements Screen {
     void setupButtons(){
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
+
+        //added by runtime errors
+        //sets up the mute button textures
+        if(Constants.volumeMultipler == 1) {
+            currentMuteButton = 0;
+        } else {
+            currentMuteButton = 2;
+        }
+        Image[] muteButtons = {new Image(new Texture("Sprites/Menu/soundon.png")),
+                new Image(new Texture("Sprites/Menu/soundon_selected.png")),
+                new Image(new Texture("Sprites/Menu/soundoff.png")),
+                new Image(new Texture("Sprites/Menu/soundoff_selected.png"))
+        };
+        //modified by runtime errors
         playButton = new ImageButton(new Image(new Texture("Sprites/Menu/PlayOff.png")).getDrawable());
         levelButton = new ImageButton(new Image(new Texture("Sprites/Menu/LevelOff.png")).getDrawable());
         quitButton = new ImageButton(new Image(new Texture("Sprites/Menu/ExitOff.png")).getDrawable());
+        muteButton = new ImageButton(muteButtons[currentMuteButton].getDrawable());
 
         playButton.setPosition(playPos.x, playPos.y);
         levelButton.setPosition(levelPos.x, levelPos.y);
@@ -149,19 +169,41 @@ public class MainMenuScreen implements Screen {
         playButton.setSize(90, 30);
         levelButton.setSize(90, 30);
         quitButton.setSize(90, 30);
+        muteButton.setSize(24,24);
 
         playButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/PlayOn.png")).getDrawable();
         levelButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/LevelOn.png")).getDrawable();
         quitButton.getStyle().imageOver = new Image(new Texture("Sprites/Menu/ExitOn.png")).getDrawable();
+        muteButton.getStyle().imageOver = muteButtons[currentMuteButton+1].getDrawable();
 
         stage.addActor(playButton);
         stage.addActor(levelButton);
         stage.addActor(quitButton);
+        stage.addActor(muteButton);
+
+        //added by runtime errors
+        //changes the volume and mute button texture on click
+        muteButton.addListener(new ClickListener() {
+            public void clicked(InputEvent event,float x,float y) {
+                if(currentMuteButton <= 1) {
+                    currentMuteButton = 2;
+                } else {
+                    currentMuteButton = 0;
+                }
+                if(Constants.volumeMultipler == 1) {
+                    Constants.volumeMultipler = 0;
+                } else {
+                    Constants.volumeMultipler = 1;
+                }
+                setupButtons();
+            }
+        });
+
 
         // Load screen added by Runtime Errors Team 25
         playButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new LoadScreen(game));
             }
         });
@@ -169,14 +211,14 @@ public class MainMenuScreen implements Screen {
         // Level screen added by Runtime Errors Team 25
         levelButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new LevelScreen(game));
             }
         });
 
         quitButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 Gdx.app.exit();
             }
         });

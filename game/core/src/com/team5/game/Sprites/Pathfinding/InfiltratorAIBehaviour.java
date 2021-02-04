@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Array;
 import com.team5.game.Environment.SystemChecker;
 import com.team5.game.Sprites.Infiltrator;
 import com.team5.game.Sprites.Player;
+import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.GameController;
 
 public class InfiltratorAIBehaviour extends NPCAIBehaviour{
@@ -119,7 +120,7 @@ public class InfiltratorAIBehaviour extends NPCAIBehaviour{
         if(!player.abilityCurrentlyActive[0]) {
             if (waitTime <= 0f || goalSystem.getBroken() || quicksabotage) {
                 if (breaking && !goalSystem.getBroken()) {
-                    explosion.play(0.2f);
+                    explosion.play(0.2f* Constants.volumeMultipler);
                     goalSystem.destroy();
                     systemChecker.breakSystem();
                 }

@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
 import com.team5.game.Environment.Walls;
 import com.team5.game.MainGame;
@@ -95,7 +96,7 @@ public class PlayScreen implements Screen {
 
         //Audio
         music.setLooping(true);
-        music.setVolume(volume);
+        music.setVolume(volume* Constants.volumeMultipler);
         music.play();
     }
 

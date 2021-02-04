@@ -71,7 +71,7 @@ public class PauseMenu {
 
         menuButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new MainMenuScreen(game));
             }
         });
@@ -85,7 +85,7 @@ public class PauseMenu {
 
         saveButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                click.play(0.5f, 1.5f, 0);
+                click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 prefs.putInteger("level", game.getLevel());
                 prefs.putInteger("prisoners", screen.gameController.getBrig().getPrisoners());
                 prefs.putFloat("playerx", screen.gameController.getPlayer().x);

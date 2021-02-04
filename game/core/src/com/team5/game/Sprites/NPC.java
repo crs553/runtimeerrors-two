@@ -108,7 +108,7 @@ public class NPC extends Sprite {
 
         outlineButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
-                clicked.play(0.3f);
+                clicked.play(0.3f*Constants.volumeMultipler);
                 screen.gameController.getPlayer().health.decreaseHealth();
             }
         });
