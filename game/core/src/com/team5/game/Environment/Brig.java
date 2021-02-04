@@ -22,6 +22,11 @@ public class Brig {
 
     //Called whenever an infiltrator is caught and moves them to the brig.
     public Vector2 imprison(){
+        //edit added by runtime errors
+        // to deal with more than 8 infiltrators
+        if(prisoners > 8) {
+            prisoners = 0;
+        }
         Vector2 position =
                 new Vector2((basePosition.x + (xOffset*prisoners))
                         * Constants.TILE_SIZE, basePosition.y* Constants.TILE_SIZE);
