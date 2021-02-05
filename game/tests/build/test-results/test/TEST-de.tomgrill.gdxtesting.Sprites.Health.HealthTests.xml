@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.tomgrill.gdxtesting.Sprites.Health.HealthTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-05T22:14:23" hostname="Xie_Long_Wu" time="0.07">
+<testsuite name="de.tomgrill.gdxtesting.Sprites.Health.HealthTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-02-05T22:15:49" hostname="Xie_Long_Wu" time="0.019">
   <properties/>
-  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTests" time="0.054"/>
-  <testcase name="setHealthTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTests" time="0.0"/>
+  <testcase name="setHealthTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTests" time="0.019">
+    <failure message="java.lang.ExceptionInInitializerError" type="java.lang.ExceptionInInitializerError">java.lang.ExceptionInInitializerError
+	at com.team5.game.Sprites.Animation.Animator.&lt;init&gt;(Animator.java:41)
+	at com.team5.game.Sprites.Animation.Animator.&lt;init&gt;(Animator.java:33)
+	at com.team5.game.Sprites.Health.Health.&lt;init&gt;(Health.java:47)
+	at de.tomgrill.gdxtesting.Sprites.Health.HealthTests.setHealthTest(HealthTests.java:21)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at de.tomgrill.gdxtesting.GdxTestRunner.render(GdxTestRunner.java:59)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:129)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:96)
+Caused by: com.badlogic.gdx.utils.GdxRuntimeException: File not found: textures.atlas (Internal)
+	at com.badlogic.gdx.files.FileHandle.read(FileHandle.java:142)
+	at com.badlogic.gdx.graphics.g2d.TextureAtlas$TextureAtlasData.&lt;init&gt;(TextureAtlas.java:104)
+	at com.badlogic.gdx.graphics.g2d.TextureAtlas.&lt;init&gt;(TextureAtlas.java:240)
+	at com.badlogic.gdx.graphics.g2d.TextureAtlas.&lt;init&gt;(TextureAtlas.java:235)
+	at com.badlogic.gdx.graphics.g2d.TextureAtlas.&lt;init&gt;(TextureAtlas.java:225)
+	at com.badlogic.gdx.graphics.g2d.TextureAtlas.&lt;init&gt;(TextureAtlas.java:220)
+	at com.team5.game.Tools.Constants.&lt;clinit&gt;(Constants.java:13)
+	... 17 more
+</failure>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
