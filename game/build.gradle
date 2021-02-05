@@ -83,18 +83,31 @@ project(":tests") {
 
         compile project(path: ":core", configuration: 'default')
 
-        compile "junit:junit:5.+"
-        compile "org.mockito:mockito-all:1.9.+"
+        compile "junit:junit:4.12"
+
 
         compile "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
 
-        testCompile 'junit:junit:5.+'
-        testCompile "org.mockito:mockito-all:1.9.+"
+        testCompile 'junit:junit:4.12'
+//        compile group: 'org.mockito', name: 'mockito-core', version: '+'
+//        compile group: 'org.powermock', name: 'powermock-api-mockito2', version: '+'
+//        compile group: 'org.powermock', name: 'powermock-module-junit4', version: '+'
+
+        compile group: 'org.mockito', name: 'mockito-core', version: '2.22.0'
+
+        testCompile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        testCompile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        testCompile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
 
         testCompile "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
         testCompile "com.badlogicgames.gdx:gdx:$gdxVersion"
         testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
+        testImplementation 'org.mockito:mockito-inline:2.13.0'
+        testImplementation 'net.bytebuddy:byte-buddy-agent:1.10.19'
+
     }
 }
 

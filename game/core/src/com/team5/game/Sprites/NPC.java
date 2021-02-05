@@ -30,7 +30,7 @@ public class NPC extends Sprite {
     //Collider
     public World world;
     public Body b2body;
-    private final int size = Constants.TILE_SIZE;
+    private int size = Constants.TILE_SIZE;
     CharacterCollider charCollider = new CharacterCollider();
 
     //Animations
