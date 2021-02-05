@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< Updated upstream
-<testsuite name="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-05T21:47:56" hostname="Lionel" time="0.031">
+<testsuite name="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-05T22:11:12" hostname="Xie_Long_Wu" time="0.068">
   <properties/>
-  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" time="0.001"/>
-  <testcase name="setHealthTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" time="0.014"/>
-=======
-<testsuite name="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-02-05T21:59:12" hostname="Xie_Long_Wu" time="0.113">
-  <properties/>
-  <testcase name="setHealthTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" time="0.113">
-    <failure message="Wanted but not invoked:&#10;health.getHealth();&#10;-&gt; at com.team5.game.Sprites.Health.Health.getHealth(Health.java:73)&#10;&#10;However, there was exactly 1 interaction with this mock:&#10;health.setHealth(3);&#10;-&gt; at de.tomgrill.gdxtesting.Sprites.Health.HealthTest.setHealthTest(HealthTest.java:20)&#10;&#10;" type="org.mockito.exceptions.verification.WantedButNotInvoked">Wanted but not invoked:
-health.getHealth();
--&gt; at com.team5.game.Sprites.Health.Health.getHealth(Health.java:73)
-
-However, there was exactly 1 interaction with this mock:
-health.setHealth(3);
--&gt; at de.tomgrill.gdxtesting.Sprites.Health.HealthTest.setHealthTest(HealthTest.java:20)
-
-
-	at com.team5.game.Sprites.Health.Health.getHealth(Health.java:73)
-	at de.tomgrill.gdxtesting.Sprites.Health.HealthTest.setHealthTest(HealthTest.java:21)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at de.tomgrill.gdxtesting.GdxTestRunner.render(GdxTestRunner.java:59)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:129)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:96)
-</failure>
-  </testcase>
->>>>>>> Stashed changes
+  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" time="0.05"/>
+  <testcase name="setHealthTest" classname="de.tomgrill.gdxtesting.Sprites.Health.HealthTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
