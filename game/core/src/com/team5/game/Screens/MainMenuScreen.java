@@ -53,12 +53,12 @@ public class MainMenuScreen implements Screen {
     Vector2 titlePos = new Vector2(Constants.CAMERA_WIDTH/2-120, 105);
 
     //Colliders
-    private final World world;
-    private final Box2DDebugRenderer b2dr;
-    private final int noNPCs = 75;
+    World world;
+    Box2DDebugRenderer b2dr;
+    int noNPCs = 75;
 
     //Reference
-    private final CustomCamera camera;
+    CustomCamera camera;
 
     public MainMenuScreen (final MainGame game){
 
@@ -139,6 +139,7 @@ public class MainMenuScreen implements Screen {
         //Updates Camera
         camera.update();
     }
+
     // Level addition
     void setupButtons(){
         stage = new Stage(camera.port);

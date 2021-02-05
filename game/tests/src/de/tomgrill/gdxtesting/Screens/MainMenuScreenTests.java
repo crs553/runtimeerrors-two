@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.exceptions.base.MockitoAssertionError;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -22,16 +23,17 @@ public class MainMenuScreenTests {
 
     @Test
     public void emptyTest(){
-        assertNotNull(main);
+        assertNotNull("passes if main has been instantiated",main);
     }
 
     @Test
     public void openTest(){
         game.setScreen(main);
-        Mockito.verify(game).setScreen(main);
-    }
-
-    public void setupTests(){
+        try {
+            Mockito.verify(game).setScreen(main); //
+        } catch (MockitoAssertionError error){
+            throw new MockitoAssertionError("This test passes if game successfully sets the main menu as its screen");
+        }
 
     }
 
