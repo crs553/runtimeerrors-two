@@ -16,4 +16,12 @@ public class MainGameTest {
         assertEquals("This test passes if game have been created",
                 gameTest.getLevel(),2);
     }
+
+    @Test
+    public void setLevelTest(){
+        MainGame gameTest = new MainGame();
+        gameTest.setLevel(1);
+        assertEquals("This test passes if game level have been changed",
+                gameTest.getLevel(),1);
+    }
 }
