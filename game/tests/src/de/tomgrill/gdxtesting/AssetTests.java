@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.Gdx;
 
 import de.tomgrill.gdxtesting.GdxTestRunner;
+import org.junit.runners.JUnit4;
 
 import static org.junit.Assert.assertTrue;
 

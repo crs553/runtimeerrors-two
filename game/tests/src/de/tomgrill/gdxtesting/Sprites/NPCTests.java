@@ -26,7 +26,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(GdxTestRunner.class)
 public class NPCTests {
 
 
@@ -43,13 +43,14 @@ public class NPCTests {
     NPC testNPC = new NPC(screen,world, graph, node, direction);
 
 
-    @Before
-    public void init(){
-        MockitoAnnotations.initMocks(this);
-    }
+//    @Before
+//    public void init(){
+//        MockitoAnnotations.initMocks(this);
+//    }
 
     @Test
     public void createTest(){
+        assertNotNull(testNPC);
 
     }
 }

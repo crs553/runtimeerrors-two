@@ -2,6 +2,7 @@ package com.team5.game.Environment;
 
 import com.badlogic.gdx.math.Vector2;
 import com.team5.game.Tools.Constants;
+import com.team5.game.Tools.GameController;
 
 public class Brig {
 
@@ -36,7 +37,7 @@ public class Brig {
 
     //Returns whether or not all the infiltrators have been caught.
     public boolean allCaught(){
-        return prisoners>=8;
+        return prisoners>= 8;
     }
     public int getPrisoners(){
         return prisoners;
