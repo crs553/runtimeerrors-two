@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.tomgrill.gdxtesting.Screens.MainMenuScreenTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-05T18:40:06" hostname="Lionel" time="0.032">
-  <properties/>
-  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Screens.MainMenuScreenTests" time="0.001"/>
-  <testcase name="openTest" classname="de.tomgrill.gdxtesting.Screens.MainMenuScreenTests" time="0.03"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

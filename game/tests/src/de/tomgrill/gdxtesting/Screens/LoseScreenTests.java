@@ -1,6 +1,7 @@
 package de.tomgrill.gdxtesting.Screens;
 
 import com.team5.game.MainGame;
+import com.team5.game.Screens.LoseScreen;
 import com.team5.game.Screens.MainMenuScreen;
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -13,29 +14,28 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainMenuScreenTests {
+public class LoseScreenTests {
 
     @Spy
     MainGame game = mock(MainGame.class, "game");
 
     @Spy
-    MainMenuScreen main = mock(MainMenuScreen.class, "main");
+    LoseScreen lose = mock(LoseScreen.class, "lose");
 
     @Test
     public void emptyTest(){
-        assertNotNull("passes if main has been instantiated",main);
+        assertNotNull("passes if main has been instantiated",lose);
     }
 
     @Test
     public void openTest(){
-        game.setScreen(main);
+        game.setScreen(lose);
         try {
-            Mockito.verify(game).setScreen(main); //
+            Mockito.verify(game).setScreen(lose); //
         } catch (MockitoAssertionError error){
-            throw new MockitoAssertionError("This test passes if game successfully sets the main menu as its screen");
+            throw new MockitoAssertionError("This test passes if game successfully sets the LoseScreen as its screen");
         }
 
     }
-
 
 }

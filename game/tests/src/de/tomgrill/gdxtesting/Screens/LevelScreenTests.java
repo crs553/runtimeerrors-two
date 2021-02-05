@@ -1,7 +1,7 @@
 package de.tomgrill.gdxtesting.Screens;
 
 import com.team5.game.MainGame;
-import com.team5.game.Screens.MainMenuScreen;
+import com.team5.game.Screens.LevelScreen;
 import org.junit.runner.RunWith;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -13,29 +13,26 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainMenuScreenTests {
-
+public class LevelScreenTests {
     @Spy
     MainGame game = mock(MainGame.class, "game");
 
     @Spy
-    MainMenuScreen main = mock(MainMenuScreen.class, "main");
+    LevelScreen level = mock(LevelScreen.class, "level");
 
     @Test
     public void emptyTest(){
-        assertNotNull("passes if main has been instantiated",main);
+        assertNotNull("passes if main has been instantiated",level);
     }
 
     @Test
     public void openTest(){
-        game.setScreen(main);
+        game.setScreen(level);
         try {
-            Mockito.verify(game).setScreen(main); //
+            Mockito.verify(game).setScreen(level); //
         } catch (MockitoAssertionError error){
-            throw new MockitoAssertionError("This test passes if game successfully sets the main menu as its screen");
+            throw new MockitoAssertionError("This test passes if game successfully sets the level as its screen");
         }
 
     }
-
-
 }

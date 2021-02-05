@@ -1,37 +1,40 @@
 package de.tomgrill.gdxtesting.Screens;
 
 import com.team5.game.MainGame;
-import com.team5.game.Screens.PlayScreen;
-import org.junit.Test;
+import com.team5.game.Screens.WinScreen;
 import org.junit.runner.RunWith;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.exceptions.base.MockitoAssertionError;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.mock;
+
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PlayScreenTests {
+public class WinScreenTests {
 
     @Spy
     MainGame game = mock(MainGame.class, "game");
 
     @Spy
-    PlayScreen play = mock(PlayScreen.class, "play");
+    WinScreen win = mock(WinScreen.class, "win");
 
     @Test
     public void emptyTest(){
-        assertNotNull("passes if play has been instantiated",play);
+        assertNotNull("passes if main has been instantiated",win);
     }
 
     @Test
     public void openTest(){
-        game.setScreen(play);
-        try{
-            Mockito.verify(game).setScreen(play);
-        }catch (MockitoAssertionError error){
-            throw new MockitoAssertionError("This tests passes if game sets play as its current screen");
+        game.setScreen(win);
+        try {
+            Mockito.verify(game).setScreen(win); //
+        } catch (MockitoAssertionError error){
+            throw new MockitoAssertionError("This test passes if game successfully sets the win screen as its screen");
         }
+
     }
+
 }
