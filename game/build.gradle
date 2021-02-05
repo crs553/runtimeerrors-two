@@ -59,7 +59,6 @@ project(":desktop") {
 project(":core") {
     apply plugin: "java-library"
 
-
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
@@ -74,9 +73,14 @@ project(":core") {
 }
 
 project(":tests") {
-    apply plugin: "java"
+    // apply plugin: "java"
+    apply plugin: "java-library"
 
     sourceSets.test.java.srcDirs = ["src/"]
+
+    test {
+        workingDir = new File("../core/assets")
+    }
 
     dependencies {
 //        compile project(":desktop")
