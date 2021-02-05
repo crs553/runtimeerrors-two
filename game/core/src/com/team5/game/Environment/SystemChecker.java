@@ -19,7 +19,6 @@ public class SystemChecker {
     //Called when an infiltrator finishes breaking a systems
     public void breakSystem(){
         systemsBroken++;
-        Gdx.app.log("Systems broken", String.valueOf(systemsBroken));
     }
 
     //Returns true when the systems broken is bigger than or equal to the max number of systems

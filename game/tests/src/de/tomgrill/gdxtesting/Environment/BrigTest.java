@@ -1,19 +1,15 @@
 package de.tomgrill.gdxtesting.Environment;
 
 import com.team5.game.Environment.Brig;
-import de.tomgrill.gdxtesting.GdxTestRunner;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BasicBrigTest {
+public class BrigTest {
 
     @InjectMocks
     Brig testBrig;
@@ -26,7 +22,7 @@ public class BasicBrigTest {
 
     @Test
     public void finalPrisonerTest(){
-        for (int i = 0; i<8; i++){
+        for (int i = 0; i<15; i++){
             testBrig.imprison();
         }
         assertTrue("This test passes if all the infiltrators have been caught",
@@ -35,6 +31,11 @@ public class BasicBrigTest {
 
     @Test
     public void getPrisonerTest(){
-
+        assertEquals(testBrig.getPrisoners(),0);
+    }
+    @Test
+    public void getPrisonerAfterCaptureTest(){
+        testBrig.imprison();
+        assertEquals(testBrig.getPrisoners(),1);
     }
 }
