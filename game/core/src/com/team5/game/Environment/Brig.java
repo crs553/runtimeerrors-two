@@ -18,6 +18,9 @@ public class Brig {
 
     public int prisoners = 0;
 
+    //runtimeErrors addition
+    private boolean moreThanEightCaught = false;
+
     public Brig(){
     }
 
@@ -25,12 +28,17 @@ public class Brig {
     public Vector2 imprison(){
         //edit added by runtime errors
         // to deal with more than 8 infiltrators
+        Vector2 position;
         if(prisoners > 8) {
-            prisoners = 0;
+            moreThanEightCaught = true;
         }
-        Vector2 position =
-                new Vector2((basePosition.x + (xOffset*prisoners))
-                        * Constants.TILE_SIZE, basePosition.y* Constants.TILE_SIZE);
+        if(moreThanEightCaught) {
+             position = new Vector2((basePosition.x + (xOffset*prisoners-8))
+                            * Constants.TILE_SIZE, basePosition.y* Constants.TILE_SIZE);
+        } else {
+            position = new Vector2((basePosition.x + (xOffset * prisoners))
+                    * Constants.TILE_SIZE, basePosition.y * Constants.TILE_SIZE);
+        }
         prisoners++;
         return position;
     }
