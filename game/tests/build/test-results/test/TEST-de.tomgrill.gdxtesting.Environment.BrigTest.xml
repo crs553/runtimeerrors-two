@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.Environment.BrigTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-02-05T22:31:32" hostname="Xie_Long_Wu" time="0.003">
+  <properties/>
+  <testcase name="getPrisonerAfterCaptureTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <testcase name="initialPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <testcase name="getPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <testcase name="finalPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

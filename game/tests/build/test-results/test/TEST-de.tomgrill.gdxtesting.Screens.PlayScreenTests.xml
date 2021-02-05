@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.Screens.PlayScreenTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-02-05T22:31:33" hostname="Xie_Long_Wu" time="0.003">
+  <properties/>
+  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Screens.PlayScreenTests" time="0.0"/>
+  <testcase name="openTest" classname="de.tomgrill.gdxtesting.Screens.PlayScreenTests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
