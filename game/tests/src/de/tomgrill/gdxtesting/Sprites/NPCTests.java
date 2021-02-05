@@ -7,6 +7,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class NPCTests {
-    @Spy
-    NPC testNPC = mock
+//    @Spy
+//    NPC testNPC = mock
 }
