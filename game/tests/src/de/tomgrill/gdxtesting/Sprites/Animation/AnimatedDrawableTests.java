@@ -12,7 +12,6 @@ public class AnimatedDrawableTests {
 
     @Test
     public void emptyTest(){
-        int sprite = 0;
         AnimatedDrawable testAnimatorDrawable = new AnimatedDrawable("idle", "Teleporter/Idle", 1f);
         assertNotNull("passes if AnimatedDrawable has been instantiated",testAnimatorDrawable);
     }
