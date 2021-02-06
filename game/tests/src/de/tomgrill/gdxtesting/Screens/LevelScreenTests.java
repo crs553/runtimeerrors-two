@@ -1,20 +1,21 @@
 package de.tomgrill.gdxtesting.Screens;
 
+import com.badlogic.gdx.Gdx;
 import com.team5.game.MainGame;
 import com.team5.game.Screens.LevelScreen;
+import de.tomgrill.gdxtesting.GdxTestRunner;
 import org.junit.runner.RunWith;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.exceptions.base.MockitoAssertionError;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(GdxTestRunner.class)
 public class LevelScreenTests {
-    @Spy
+
     MainGame game = mock(MainGame.class, "game");
 
     @Spy

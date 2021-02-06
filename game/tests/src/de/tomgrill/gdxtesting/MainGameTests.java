@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(GdxTestRunner.class)
-public class MainGameTest {
+public class MainGameTests {
 
     @Test
     public void createTest(){
@@ -18,10 +18,13 @@ public class MainGameTest {
     }
 
     @Test
-    public void setLevelTest(){
+    public void setAndGetLevelTest(){
         MainGame gameTest = new MainGame();
-        gameTest.setLevel(1);
+        gameTest.setLevel(3);
         assertEquals("This test passes if game level have been changed",
-                gameTest.getLevel(),1);
+                gameTest.getLevel(),3);
     }
+
+
+
 }

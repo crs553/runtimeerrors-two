@@ -1,6 +1,8 @@
 package de.tomgrill.gdxtesting.Environment;
 
 import com.team5.game.Environment.Brig;
+import de.tomgrill.gdxtesting.GdxTestRunner;
+import org.graalvm.compiler.asm.sparc.SPARCAssembler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -8,11 +10,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(GdxTestRunner.class)
 public class BrigTest {
 
-    @InjectMocks
-    Brig testBrig;
+
+    Brig testBrig = new Brig();
 
     @Test
     public void initialPrisonerTest(){
@@ -31,6 +33,7 @@ public class BrigTest {
 
     @Test
     public void getPrisonerTest(){
+
         assertEquals(testBrig.getPrisoners(),0);
     }
     @Test
