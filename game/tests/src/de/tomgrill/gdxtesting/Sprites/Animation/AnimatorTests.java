@@ -15,20 +15,20 @@ public class AnimatorTests {
     public  void emptyTest(){
         int sprite = 0;
         Animator testAnimator = new Animator("idle", "NPC/" + (sprite + 1) + "/Idle");
-        assertNotNull("passes if health has been instantiated",testAnimator);
+        assertNotNull("passes if animator has been instantiated",testAnimator);
     }
 
     @Test
     public void isFlippedTest(){
         int sprite = 0;
         Animator testAnimator = new Animator("idle", "NPC/" + (sprite + 1) + "/Idle");
-        assertEquals("passes if health has been instantiated",false,testAnimator.isFlipped());
+        assertEquals("passes if animator is not Flipped",false,testAnimator.isFlipped());
     }
 
     @Test
     public void finishedTest(){
         int sprite = 0;
         Animator testAnimator = new Animator("idle", "NPC/" + (sprite + 1) + "/Idle");
-        assertEquals("passes if health has been instantiated",false,testAnimator.finished());
+        assertEquals("passes if animator is not finished",false,testAnimator.finished());
     }
 }
