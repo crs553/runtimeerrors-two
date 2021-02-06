@@ -28,7 +28,6 @@ public class CharacterCollider {
         fixDef.filter.groupIndex = Constants.GROUP_PLAYER;
 
         b2body.createFixture(fixDef);
-
         return b2body;
     }
 
