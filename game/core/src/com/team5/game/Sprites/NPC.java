@@ -147,12 +147,6 @@ public class NPC extends Sprite {
             facingRight = true;
         }
     }
-    public void printit(float thing) {
-        System.out.println(thing);
-    }
-    public void printit(String thing) {
-        System.out.println(thing);
-    }
 
     public void dispose(){
         clicked.dispose();

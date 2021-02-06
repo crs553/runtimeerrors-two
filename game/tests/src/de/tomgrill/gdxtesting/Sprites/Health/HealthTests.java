@@ -11,6 +11,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(GdxTestRunner.class)
 public class HealthTests {
 
+
     @Test
     public  void  emptyTest(){
         assertNotNull("passes if health has been instantiated", new Health(null, null));

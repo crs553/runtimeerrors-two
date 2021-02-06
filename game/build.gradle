@@ -79,6 +79,7 @@ project(":tests") {
 
     test {
         workingDir = new File("../core/assets")
+
     }
 
     dependencies {
@@ -97,7 +98,7 @@ project(":tests") {
 //        compile group: 'org.powermock', name: 'powermock-api-mockito2', version: '+'
 //        compile group: 'org.powermock', name: 'powermock-module-junit4', version: '+'
 
-        compile group: 'org.mockito', name: 'mockito-core', version: '2.22.0'
+        compile group: 'org.mockito', name: 'mockito-core', version: '2.+'
 
         testCompile "com.badlogicgames.gdx:gdx:$gdxVersion"
         testCompile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
@@ -108,7 +109,7 @@ project(":tests") {
         testCompile "com.badlogicgames.gdx:gdx:$gdxVersion"
         testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
-        testImplementation 'org.mockito:mockito-inline:2.13.0'
+        testImplementation 'org.mockito:mockito-inline:2.+'
         testImplementation 'net.bytebuddy:byte-buddy-agent:1.10.19'
 
     }
