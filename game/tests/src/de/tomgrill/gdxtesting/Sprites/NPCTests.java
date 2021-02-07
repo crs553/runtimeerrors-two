@@ -53,9 +53,13 @@ public class NPCTests {
 ////    }
 //
 //
+
+    @Spy
+    NPC npc = mock(NPC.class);
+
     @Test
     public void emptyTest(){
 //        NPC npcTest = new NPC(mock(PlayScreen.class),mock(World.class),mock(NodeGraph.class),mock(Node.class),mock(Vector2.class));
-        assertNotNull("Passes if the NPC is not null");//, npcTest);
+        assertNotNull("Passes if the NPC is not null",npc);//, npcTest);
     }
 }

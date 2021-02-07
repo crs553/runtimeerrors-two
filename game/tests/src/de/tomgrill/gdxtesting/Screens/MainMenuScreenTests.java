@@ -34,8 +34,5 @@ public class MainMenuScreenTests {
         } catch (MockitoAssertionError error){
             throw new MockitoAssertionError("This test passes if game successfully sets the main menu as its screen");
         }
-
     }
-
-
 }

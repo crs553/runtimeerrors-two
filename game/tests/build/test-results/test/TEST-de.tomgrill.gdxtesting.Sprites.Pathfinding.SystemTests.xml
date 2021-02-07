@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-02-06T20:37:20" hostname="Xie_Long_Wu" time="0.135">
+<testsuite name="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-02-07T20:39:28" hostname="Xie_Long_Wu" time="0.068">
   <properties/>
-  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.067"/>
-  <testcase name="getNameTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.001"/>
+  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.001"/>
+  <testcase name="getNameTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.0"/>
   <testcase name="destoryTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.0"/>
   <testcase name="getXTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.0"/>
   <testcase name="getYTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.SystemTests" time="0.0"/>
