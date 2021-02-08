@@ -15,7 +15,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.sun.org.apache.bcel.internal.Const;
 import com.team5.game.MainGame;
 import com.team5.game.Tools.Constants;
 import com.team5.game.Tools.CustomCamera;
