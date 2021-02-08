@@ -91,6 +91,11 @@ public class PauseMenu {
                 prefs.putFloat("playerx", screen.gameController.getPlayer().x);
                 prefs.putFloat("playery", screen.gameController.getPlayer().y);
                 prefs.putInteger("health", screen.gameController.getPlayer().getHealth());
+                prefs.putInteger("sysBroken", screen.gameController.getSystemChecker().getSystemsBroken());
+                boolean[] saveAbilities = screen.gameController.getPlayer().getAbilities();
+                for (int i = 0; i < 5; i++){
+                    prefs.putBoolean("ability"+i, saveAbilities[i]);
+                }
                 prefs.flush();
                 game.setScreen(new MainMenuScreen(game));
             }

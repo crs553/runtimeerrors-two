@@ -57,7 +57,7 @@ public class Player extends Sprite {
     //ability at index 2 is teleport - goes to keyboard num 3
     //ability at index 3 is slow infiltrators - goes to keyboard num 4
     public int currentAbility = 100; //index for arrays below, 100 means none active
-    private boolean[] abilityAvailable = new boolean[] {true,true,true,true,true}; //(One use)
+    public boolean[] abilityAvailable = new boolean[] {true,true,true,true,true}; //(One use)
     public boolean[] abilityCurrentlyActive = new boolean[] {false,false,false,false,false};
     int abilityTimeLeft = 500;
 
@@ -199,6 +199,12 @@ public class Player extends Sprite {
 
     // SetHealth added by Runtime Errors
     public void setHealth(int newHealth){  health.setHealth(newHealth);
+    }
+    // Runtime Errors - getAbilities for saving/loading them
+    public boolean[] getAbilities(){  return abilityAvailable;
+    }
+    // Runtime Errors - getAbilities for saving/loading them
+    public void setAbilities(boolean[] abilitiesSaved){ abilityAvailable = abilitiesSaved;
     }
 
     public void printit(String thing) {

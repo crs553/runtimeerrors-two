@@ -21,6 +21,11 @@ public class SystemChecker {
         systemsBroken++;
     }
 
+    //Runtime Errors Returns the number of broken systems
+    public int getSystemsBroken(){
+        return (systemsBroken);
+    }
+
     //Returns true when the systems broken is bigger than or equal to the max number of systems
     public boolean allSystemsBroken(){
         return (systemsBroken>=maxSystems);

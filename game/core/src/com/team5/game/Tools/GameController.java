@@ -36,13 +36,15 @@ public class GameController {
     public int noNPCs;
     public int noInfiltrators = 8;
 
-    // Team 25 - Save/Load
+    // Runtime Errors Team 25 - Save/Load
     Preferences prefs = Gdx.app.getPreferences("Save File");
     int savedPrisoners = prefs.getInteger("prisoners",0);;
     int savedLevel = 0;
     int savedHealth = prefs.getInteger("health",Constants.MAX_HEALTH);
     float savedPlayerX = prefs.getFloat("playerx",50 * Constants.TILE_SIZE);
     float savedPlayerY = prefs.getFloat("playery",95 * Constants.TILE_SIZE);
+    int savedSysBroken = prefs.getInteger("sysBroken",0);
+    boolean[] savedAbilities = new boolean[] {prefs.getBoolean("ability0",true),prefs.getBoolean("ability1",true),prefs.getBoolean("ability2",true),prefs.getBoolean("ability3",true),prefs.getBoolean("ability4",true)};
 
     boolean motionTrapExists = false;
     Trap motionTrap;
@@ -59,7 +61,6 @@ public class GameController {
                 game.setLevel(savedLevel);
             }
         }
-        java.lang.System.out.println("Saved : "+savedPrisoners);
 
         //runtime errors addition level setter
         int leverSetter = game.getLevel();
@@ -105,38 +106,48 @@ public class GameController {
         }
 
         // Runtime Errors
-        int caughtInfiltrators = 0;
-        int numInf = 0;
-        if (loadGame){
-            caughtInfiltrators = savedPrisoners;
-        }
+
         // Runtime Errors edit none caught infiltrators
-        for (int i = 0; i < (noInfiltrators - caughtInfiltrators); i++) {
+        for (int i = 0; i < (noInfiltrators); i++) {
             System node = graph.getRandomSystem();
             Infiltrator npc = new Infiltrator(game, screen, this, screen.getWorld(), graph,
                     node, new Vector2(node.getX(), node.getY()));
             infiltrators.add(npc);
         }
 
+        // Only runs when load is selected
         if (loadGame){
-            // Runtime Errors caught infiltrators
-            for (int i = 0; i < caughtInfiltrators; i++) {
-                System node = graph.getRandomSystem();
-                Infiltrator npc = new Infiltrator(game, screen, this, screen.getWorld(), graph,
-                        node, new Vector2(node.getX(), node.getY()));
-                npc.beenCaught();
-                infiltrators.add(npc);
-                numInf = numInf + 1;
-
+            // Runtime Errors sets caught infiltrators
+            int j = 0;
+            for (Infiltrator bad : infiltrators){
+                if (j < savedPrisoners){
+                    j += 1;
+                    bad.beenCaught();
+                }else{
+                    break;
+                }
             }
-            java.lang.System.out.println("Num inf : "+ numInf);
 
+            // sets broken systems
+            Array<System> systems;
+            systems = new Array<>();
+            systems.addAll(graph.getSystems());
+
+            for (int i = 0; i<savedSysBroken ;i++){
+                System sys = systems.random();
+                if (!(sys.getBroken())){
+                    sys.destroy();
+                    systemChecker.breakSystem();
+                }else {
+                    i -= 1;
+                }
+            }
+            // sets player used abilities, health and position
+            player.setAbilities(savedAbilities);
             player.setHealth(savedHealth);
             player.updatePosition(new Vector2(savedPlayerX, savedPlayerY));
 
-            java.lang.System.out.println(brig.getPrisoners());
         }
-
     }
 
     public void updateTrapState(Player player) {

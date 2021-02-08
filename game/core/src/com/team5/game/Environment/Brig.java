@@ -40,6 +40,7 @@ public class Brig {
                     * Constants.TILE_SIZE, basePosition.y * Constants.TILE_SIZE);
         }
         prisoners++;
+        java.lang.System.out.println("Brig Imprison : "+ prisoners);
         return position;
     }
 
