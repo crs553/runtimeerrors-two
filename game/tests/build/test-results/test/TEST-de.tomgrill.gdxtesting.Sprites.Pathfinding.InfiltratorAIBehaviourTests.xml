@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.Sprites.Pathfinding.InfiltratorAIBehaviourTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-08T19:05:49" hostname="Xie_Long_Wu" time="0.005">
+  <properties/>
+  <testcase name="activateAbilityTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.InfiltratorAIBehaviourTests" time="0.003"/>
+  <testcase name="slowingAbilityTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.InfiltratorAIBehaviourTests" time="0.001"/>
+  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.InfiltratorAIBehaviourTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

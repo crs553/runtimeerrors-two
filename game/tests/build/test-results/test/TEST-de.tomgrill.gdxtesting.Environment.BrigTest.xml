@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.Environment.BrigTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-02-08T19:05:48" hostname="Xie_Long_Wu" time="0.05">
+  <properties/>
+  <testcase name="getPrisonerAfterCaptureTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.003"/>
+  <testcase name="initialPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <testcase name="getPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.0"/>
+  <testcase name="finalPrisonerTest" classname="de.tomgrill.gdxtesting.Environment.BrigTest" time="0.002"/>
+  <system-out><![CDATA[Brig Imprison : 1
+Brig Imprison : 1
+Brig Imprison : 2
+Brig Imprison : 3
+Brig Imprison : 4
+Brig Imprison : 5
+Brig Imprison : 6
+Brig Imprison : 7
+Brig Imprison : 8
+Brig Imprison : 9
+Brig Imprison : 10
+Brig Imprison : 11
+Brig Imprison : 12
+Brig Imprison : 13
+Brig Imprison : 14
+Brig Imprison : 15
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

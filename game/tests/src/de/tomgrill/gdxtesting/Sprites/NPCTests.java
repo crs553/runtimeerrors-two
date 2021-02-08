@@ -20,6 +20,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.exceptions.base.MockitoAssertionError;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.MockitoRule;
@@ -27,7 +28,7 @@ import org.mockito.junit.MockitoRule;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-@RunWith(GdxTestRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class NPCTests {
 
 //    @Mock
@@ -61,5 +62,15 @@ public class NPCTests {
     public void emptyTest(){
 //        NPC npcTest = new NPC(mock(PlayScreen.class),mock(World.class),mock(NodeGraph.class),mock(Node.class),mock(Vector2.class));
         assertNotNull("Passes if the NPC is not null",npc);//, npcTest);
+    }
+
+    @Test
+    public void disposeTest(){
+        npc.dispose();
+        try {
+            Mockito.verify(npc).dispose(); //
+        } catch (MockitoAssertionError error){
+            throw new MockitoAssertionError("This test passes if NPC successfully disposed");
+        }
     }
 }

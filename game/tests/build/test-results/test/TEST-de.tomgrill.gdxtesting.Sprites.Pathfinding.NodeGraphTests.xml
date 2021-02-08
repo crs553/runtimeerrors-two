@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-02-08T19:05:49" hostname="Xie_Long_Wu" time="0.027">
+  <properties/>
+  <testcase name="emptyTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="addRoomTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.008"/>
+  <testcase name="getIndexTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.002"/>
+  <testcase name="getNodeCountTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="addNodeTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.002"/>
+  <testcase name="getConnectionsTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="addSystemTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="getRandomSystemRoomTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="findPathTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="getRandomRoomTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <testcase name="linkNodesTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.0"/>
+  <testcase name="getSystemsTest" classname="de.tomgrill.gdxtesting.Sprites.Pathfinding.NodeGraphTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
