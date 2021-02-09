@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.team5.game.Tools.Constants;
 
 public class CharacterCollider {
+     /*provided by previous team */
 
     /*
     CharacterCollider just sets ups the collider for NPCs,

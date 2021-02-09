@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.BaseDrawable;
 import com.team5.game.Tools.Constants;
 
 public class AnimatedDrawable extends BaseDrawable {
+    /*provided by previous team */
+
 
     /*
     AnimatedDrawable is used to make animated UI.

@@ -8,6 +8,7 @@ import com.team5.game.Tools.Constants;
 import java.util.Hashtable;
 
 public class Animator {
+    /*provided by previous team */
 
     /*
     Animator stores all the animations for a sprite and

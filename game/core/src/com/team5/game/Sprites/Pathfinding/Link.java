@@ -4,6 +4,7 @@ import com.badlogic.gdx.ai.pfa.Connection;
 import com.badlogic.gdx.math.Vector2;
 
 public class Link<N> implements Connection<Node> {
+    /*provided by previous team */
 
     /*
     Link represents the link between two Nodes on the graph

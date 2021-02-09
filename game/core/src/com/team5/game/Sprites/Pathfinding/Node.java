@@ -6,6 +6,7 @@ import com.team5.game.Tools.Constants;
 import java.util.Random;
 
 public class Node{
+    /*provided by previous team */
 
     /*
     Node represents any point that an NPC is going to use
