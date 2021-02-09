@@ -98,6 +98,8 @@ public class WinScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*allows the interface to adapt to a change in window size.*/
+
         camera.port.update(width, height);
     }
 
@@ -118,6 +120,8 @@ public class WinScreen implements Screen {
 
     @Override
     public void dispose() {
+        /*removes the objects used from memory*/
+
         this.dispose();
         stage.dispose();
         world.dispose();
@@ -128,6 +132,8 @@ public class WinScreen implements Screen {
     //Custom functions from here
 
     public void update(float delta){
+        /*updates the interface*/
+
         world.step(1/60f, 6, 2);
 
         //Updates Camera
@@ -135,6 +141,8 @@ public class WinScreen implements Screen {
     }
 
     void setupButtons(){
+        /*prepares textures and settings for the buttons that send the user back to the main
+        menu or start a new game*/
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
@@ -154,6 +162,7 @@ public class WinScreen implements Screen {
         stage.addActor(quitButton);
 
         playButton.addListener(new ClickListener(){
+            /*creates a new game when clicked*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game, false)); //change later
@@ -161,6 +170,7 @@ public class WinScreen implements Screen {
         });
 
         quitButton.addListener(new ClickListener(){
+            /*sends the user back to the main menu screen when clicked*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new MainMenuScreen(game));

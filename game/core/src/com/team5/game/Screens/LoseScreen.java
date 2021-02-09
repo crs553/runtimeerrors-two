@@ -146,6 +146,7 @@ public class LoseScreen implements Screen {
         playButton.addListener(new ClickListener(){
             /*creates a new game*/
             public void clicked(InputEvent event, float x, float y){
+                /*creates a new game*/
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game, false)); //change later
             }
