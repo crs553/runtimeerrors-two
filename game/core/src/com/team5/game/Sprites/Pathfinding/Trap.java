@@ -1,11 +1,7 @@
 package com.team5.game.Sprites.Pathfinding;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.graphics.Texture;
-import com.team5.game.MainGame;
 
 
 //Entire class created by runtime errors

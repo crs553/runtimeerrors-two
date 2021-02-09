@@ -2,7 +2,6 @@ package com.team5.game.Sprites.Animation;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.team5.game.Tools.Constants;
 
