@@ -51,6 +51,10 @@ public class PauseMenu {
     Vector2 saveOffset = new Vector2(-48, -30);
 
     public PauseMenu(MainGame game, PlayScreen screen){
+        /*
+        Constructor for pause menu class
+        Calls setup in order to pause the game
+         */
         this.game = game;
         camera = screen.camera;
 
@@ -58,6 +62,11 @@ public class PauseMenu {
     }
 
     void setup(final PlayScreen screen){
+        /*
+        Creates background for pause menu and creates buttons
+        param:
+            PlayScreen screen
+         */
         stage = new Stage(camera.port);
         pauseImage = new Image(new Texture("Sprites/Menu/Pause Menu.png"));
         pauseImage.setPosition(camera.cam.position.x + pauseOffset.x,
@@ -107,11 +116,10 @@ public class PauseMenu {
 
     }
 
-    public void updateSaveValues(int e){
-
-    }
-
     public void update(){
+        /*
+        Updates position of pause menu overlay
+         */
         pauseImage.setPosition(camera.cam.position.x + pauseOffset.x,
                 camera.cam.position.y + pauseOffset.y);
         menuButton.setPosition(camera.cam.position.x + menuOffset.x,
@@ -122,6 +130,11 @@ public class PauseMenu {
     }
 
     public void draw(float delta){
+        /*
+        draws pause menu scene
+        param:
+            float delta
+         */
         stage.act(delta);
         stage.draw();
     }
