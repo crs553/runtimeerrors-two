@@ -36,6 +36,12 @@ public class Minimap {
     Array<Point> points;
 
     public Minimap(PlayScreen screen, Teleporters teleporters){
+        /*
+        Constructor for Minimap class which is displayed when a player teleports
+        params:
+            PlayScreen screen
+            Teleporters teleporters
+         */
         this.screen = screen;
         this.teleporters = teleporters;
         camera = screen.camera;

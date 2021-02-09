@@ -21,7 +21,7 @@ public class CustomCamera {
     public int camHeight = Constants.CAMERA_HEIGHT;
 
     public CustomCamera(){
-        cam = new OrthographicCamera();
+                cam = new OrthographicCamera();
         port = new FitViewport(camWidth, camHeight, cam);
         cam.position.set(camWidth/2, camHeight/2, 0);
     }
@@ -39,6 +39,11 @@ public class CustomCamera {
 
     //follow is used to make the camera follow the player
     public void follow(Player player){
+        /*
+        Follow changes camera position to allow the player to be followed
+        params:
+            Player player
+         */
         cam.position.set(player.b2body.getPosition().x, player.b2body.getPosition().y, 0);
     }
 
