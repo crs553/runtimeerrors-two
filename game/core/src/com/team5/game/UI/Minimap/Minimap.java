@@ -50,6 +50,9 @@ public class Minimap {
     }
 
     void setup(){
+        /*
+        Setup of Minimap to allow for it to display over the game.
+         */
         stage = new Stage(camera.port);
         points = new Array<>();
 
