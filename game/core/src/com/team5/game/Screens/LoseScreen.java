@@ -45,6 +45,9 @@ public class LoseScreen implements Screen {
     private final CustomCamera camera;
 
     public LoseScreen (final MainGame game){
+        /*creates the screen that tells the player they've lost and
+        provides buttons to let the user go back to main menu or set up a new game
+         */
 
         this.game = game;
         title = new Texture("Sprites/Menu/MissionFailed.png");
@@ -64,6 +67,7 @@ public class LoseScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /* draws all the objects that are part of the interface into the window*/
         update(Gdx.graphics.getDeltaTime());
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -82,6 +86,7 @@ public class LoseScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*allows the interface to adapt to a change in window size.*/
         camera.port.update(width, height);
     }
 
@@ -102,6 +107,7 @@ public class LoseScreen implements Screen {
 
     @Override
     public void dispose() {
+        /*removes the objects used from memory*/
         this.dispose();
         stage.dispose();
         click.dispose();
@@ -110,12 +116,15 @@ public class LoseScreen implements Screen {
     //Custom functions from here
 
     public void update(float delta){
-
+        /*updates the interface*/
         //Updates Camera
         camera.update();
     }
 
     void setupButtons(){
+        /*prepares textures and settings for the buttons that let the user play again
+         or exit the game
+         */
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
@@ -135,6 +144,7 @@ public class LoseScreen implements Screen {
         stage.addActor(quitButton);
 
         playButton.addListener(new ClickListener(){
+            /*creates a new game*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game, false)); //change later
@@ -143,6 +153,7 @@ public class LoseScreen implements Screen {
 
         quitButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*sends the user back to the main menu*/
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new MainMenuScreen(game));
             }

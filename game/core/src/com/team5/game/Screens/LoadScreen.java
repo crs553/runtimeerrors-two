@@ -135,8 +135,9 @@ public class LoadScreen implements Screen {
 
 
     void setupButtons(){
-        /*prepares textures and settings for the buttons that allow the user to change the difficulty level,
-        as well as setting up the functions that are called when the buttons are pressed*/
+        /*prepares textures and settings for the buttons that allow the user to chose between
+        starting and old game and setting up a new game, as well as setting up the functions
+        that are called when the buttons are pressed*/
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
