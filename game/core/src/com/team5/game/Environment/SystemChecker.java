@@ -1,7 +1,5 @@
 package com.team5.game.Environment;
 
-import com.badlogic.gdx.Gdx;
-
 public class SystemChecker {
 
     /*
