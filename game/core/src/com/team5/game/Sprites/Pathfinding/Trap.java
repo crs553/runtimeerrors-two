@@ -19,12 +19,18 @@ public class Trap extends Rectangle {
     private boolean alerted = false;
 
     public Trap(float x, float y) {
+        /* stores the coordinates the trap is at*/
         super(x,y,48,48);
         this.x = x - 24;
         this.y = y - 24;
     }
 
     public Texture getSkin() {
+        /*getter for the current texture - checks if an infiltrator is standing on the
+        trap and returns the alerted skin, else the default skin
+        returns:
+            Texture alertSkin or Texture defaultSkin which are the textures for the trap
+         */
         if (alerted) {
             return alertSkin;
         } else {
@@ -33,9 +39,11 @@ public class Trap extends Rectangle {
     }
 
     public void alert() {
+        /*setter for alerted*/
         alerted = true;
     }
     public void resetAlert() {
+        /*setter for alerted*/
         alerted = false;
     }
 
