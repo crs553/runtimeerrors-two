@@ -29,6 +29,7 @@ public class Walls {
     int stopIndex = 5;
 
     public Walls(World world, TiledMap map){
+        /* creates wall object*/
         this.world = world;
         this.map = map;
 
@@ -43,6 +44,8 @@ public class Walls {
     //Loops through all rectangles on the Tilemap
     //object layer and adds a collider to them
     void initialiseColliders(){
+        /*Loops through all rectangles on the Tilemap object layer and adds a collider to them*/
+
         for(MapObject object: map.getLayers().get(stopIndex).getObjects().getByType(RectangleMapObject.class)){
             rect = ((RectangleMapObject) object).getRectangle();
 
