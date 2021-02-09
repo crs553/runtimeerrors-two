@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class BrigTest {
 
 
-    Brig testBrig = new Brig();
+    Brig testBrig = new Brig(1);
 
     @Test
     public void initialPrisonerTest(){

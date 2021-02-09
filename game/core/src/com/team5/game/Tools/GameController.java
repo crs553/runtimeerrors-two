@@ -85,7 +85,7 @@ public class GameController {
         teleporters = new Teleporters(screen);
 
         //Checkers
-        brig = new Brig();
+        brig = new Brig(game.getLevel());
 
 
         systemChecker = new SystemChecker();

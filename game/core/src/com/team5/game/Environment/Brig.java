@@ -21,11 +21,24 @@ public class Brig {
     //runtimeErrors addition
     private boolean moreThanEightCaught = false;
 
-    public Brig(){
+    int level;
+
+    public Brig(int level){
+        /*creates the brig object to deal with captured infiltrators
+        parameters:
+            int level, which gives the difficulty level
+         */
+        this.level = level;
     }
 
-    //Called whenever an infiltrator is caught and moves them to the brig.
     public Vector2 imprison(){
+        /* called whenever an infiltrator is caught and moves the to the brig
+        returns:
+            Vector2 object giving the coordinates to move the infiltrator to.
+         */
+
+
+
         //edit added by runtime errors
         // to deal with more than 8 infiltrators
         Vector2 position;
@@ -46,9 +59,21 @@ public class Brig {
 
     //Returns whether or not all the infiltrators have been caught.
     public boolean allCaught(){
-        return prisoners>= 8;
+        /* indicates whether all infiltrators are caught
+        returns:
+        boolean, true if all infiltrators are caught, false otherwise
+         */
+        if(level < 3) {
+            return prisoners >= 10;
+        } else {
+            return prisoners >= 8;
+        }
     }
     public int getPrisoners(){
+        /*gives the count of infiltrators caught
+        returns:
+            int giving the number of infiltrators caught
+         */
         return prisoners;
     }
 
