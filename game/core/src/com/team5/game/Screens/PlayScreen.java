@@ -64,6 +64,7 @@ public class PlayScreen implements Screen {
     public boolean loadGame;
 
     public PlayScreen(MainGame game, boolean loadGame){
+        /* loads the game and sets up the map, collisions, and sound*/
         this.game = game;
 
         //Tilemap
@@ -106,6 +107,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /*draws the map and the player*/
         checkPause();
 
         if (!paused && !mapVisible) {
@@ -141,11 +143,13 @@ public class PlayScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*adapts the camera to changes of window size*/
         camera.port.update(width, height);
     }
 
     @Override
     public void pause() {
+        /*creates the pause menu over the top of the map*/
         pauseMenu.update();
         Gdx.input.setInputProcessor(pauseMenu.stage);
         music.pause();
@@ -158,11 +162,13 @@ public class PlayScreen implements Screen {
 
     @Override
     public void hide() {
+        /*stops the music*/
         music.stop();
     }
 
     @Override
     public void dispose() {
+        /*removes objects used from memory*/
         this.dispose();
         stage.dispose();
         map.dispose();
@@ -177,6 +183,7 @@ public class PlayScreen implements Screen {
     //Past here is all the methods I made
 
     public void update(float delta){
+        /*makes the camera follow the player*/
         world.step(1/60f, 6, 2);
 
         gameController.update(delta);
@@ -192,17 +199,22 @@ public class PlayScreen implements Screen {
     }
 
     public void minimapOn(){
+        /*creates the minimap that allows the player to teleport*/
         minimap.update();
         Gdx.input.setInputProcessor(minimap.stage);
         mapVisible = true;
     }
 
     public void minimapOff(){
+        /*removes the minimap from the screen*/
         Gdx.input.setInputProcessor(stage);
         mapVisible = false;
     }
 
     void checkPause(){
+        /*checks if the user has pressed the escape key and if so,
+        creates the pause screen
+         */
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
             if (mapVisible){
                 minimapOff();
@@ -219,5 +231,10 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public World getWorld(){return world;}
+    public World getWorld(){
+        /*returns the map
+        returns:
+            World object, that hold the map.
+         */
+        return world;}
 }

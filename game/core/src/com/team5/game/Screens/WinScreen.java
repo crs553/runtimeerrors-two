@@ -52,6 +52,7 @@ public class WinScreen implements Screen {
     private final CustomCamera camera;
 
     public WinScreen (final MainGame game){
+        /*creates the screen that tells the player they have won*/
 
         this.game = game;
         title = new Texture("Sprites/Menu/MissionComplete.png");
@@ -75,6 +76,8 @@ public class WinScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /* draws all the objects that are part of the interface into the window*/
+
         update(Gdx.graphics.getDeltaTime());
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
