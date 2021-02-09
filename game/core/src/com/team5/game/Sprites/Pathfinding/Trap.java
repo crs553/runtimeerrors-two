@@ -48,6 +48,7 @@ public class Trap extends Rectangle {
     }
 
     public void dispose() {
+        /*removes unneeded objects from memory*/
         defaultSkin.dispose();
         alertSkin.dispose();
     }
