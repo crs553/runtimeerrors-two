@@ -64,6 +64,14 @@ public class NPC extends Sprite {
     Sound clicked = Gdx.audio.newSound(Gdx.files.internal("Audio/Sound Effects/wrong.wav"));
 
     public NPC(PlayScreen screen, World world, NodeGraph graph, Node node, Vector2 position){
+        /*Stores all the variables needed for npc processing
+        parameters:
+            PlayScreen screen give the current interface in the window
+            World world contains the map
+            NodeGraph graph gives the map of the rooms
+            Node node gives the current node the npc is in
+            Vector2 position gives the current coordinates of the npc
+         */
         this.world = world;
         this.screen = screen;
         this.x = position.x;
@@ -76,14 +84,15 @@ public class NPC extends Sprite {
         setup();
     }
 
-    //To be called every frame to move and animate the NPC.
     public void update(float delta){
+        /*To be called every frame to move and animate the NPC.*/
         ai.update(delta);
         handleAnimations(direction);
     }
 
-    //Sets up all the base Animations as well as the AI
+
     public void setup(){
+        /*Sets up all the base Animations as well as the AI*/
         ai = new NPCAIBehaviour(this, graph, node);
 
         //Setting initial values of animations
@@ -118,6 +127,9 @@ public class NPC extends Sprite {
 
     //Deciding which animation will be played each frame based on the ai movement
     void handleAnimations(Vector2 direction){
+        /*changes the animations
+        parameters:
+            Vector2 direction gives the npc's target*/
         if (direction.isZero(0.01f)){
             b2body.setLinearVelocity(0f, 0f);
             anim.play("idle");
@@ -149,6 +161,7 @@ public class NPC extends Sprite {
     }
 
     public void dispose(){
+        /*removes unneeded objects*/
         clicked.dispose();
     }
 
