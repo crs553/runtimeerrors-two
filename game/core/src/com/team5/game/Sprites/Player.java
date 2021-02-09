@@ -62,8 +62,13 @@ public class Player extends Sprite {
     int abilityTimeLeft = 500;
 
 
-    //To instantiate the player
+
     public Player(MainGame game, World world){
+        Instantiates Player
+        param:
+            MainGame game
+            World world
+         */
         this.world = world;
 
         health = new Health(game, this);
@@ -71,8 +76,10 @@ public class Player extends Sprite {
         setupAnimations();
     }
 
-    //To be called every frame to move and animate the player.
     public void update(){
+        /*
+        Update is called every frame to move and animate the player
+         */
         handleAnimations(checkInputs());
         health.update();
 
@@ -97,16 +104,20 @@ public class Player extends Sprite {
         }
     }
 
-    //Setting up the animator as well as all the animations.
     public void setupAnimations(){
+        /*
+        Sets up animator and all animations needed for the player
+         */
         anim = new Animator("idle", "Player/Idle");
         anim.add("run", "Player/Run");
         facingRight = true;
         currentSprite = anim.getSprite();
     }
 
-    //Checks the keyboard inputs and produces a Vector2 accordingly
     Vector2 checkInputs() {
+        /*
+        Checks for keyboard input and produces a Vector2 based on that input
+         */
         xInput = 0;
         yInput = 0;
 
@@ -144,9 +155,12 @@ public class Player extends Sprite {
 
         return new Vector2(xInput * speed, yInput * speed);
     }
-    //Created by Runtime Errors
-    //Activates the abilities
     private void activateAbility(int abilityNum) {
+        /*
+        Allows for activation of ability
+        Created by Runtime Errors
+        If current ability is 100 not ability is active
+         */
         if(currentAbility == 100) {
             if(abilityAvailable[abilityNum]) {
                 currentAbility = abilityNum;
@@ -157,6 +171,9 @@ public class Player extends Sprite {
     }
 
     public void deactivateTeleportAbility() {
+        /*
+        Deactivates teleport ability and no ability is active
+         */
         abilityCurrentlyActive[2] = false;
         currentAbility = 100;
         abilityTimeLeft = 500;
@@ -164,6 +181,11 @@ public class Player extends Sprite {
 
     //Deciding which animation will be played each frame based on input
     void handleAnimations(Vector2 direction){
+        /*
+        Decides which animation for each frame based on input
+        param:
+            Vector2 Direction
+         */
         if (direction.isZero(0.01f)){
             b2body.setLinearVelocity(0f, 0f);
             anim.play("idle");
@@ -186,41 +208,74 @@ public class Player extends Sprite {
         }
     }
 
-    //Used to teleport the player across the map
     public void updatePosition(Vector2 target){
+        /*
+        updates position after a teleport
+        param:
+            Vector2 target
+         */
         b2body.setTransform(target, 0);
         x = b2body.getPosition().x;
         y = b2body.getPosition().y;
     }
 
     public int getHealth(){
+        /*
+        Getter for health
+        return:
+            health.gethealth()
+         */
         return health.getHealth();
     }
 
     // SetHealth added by Runtime Errors
-    public void setHealth(int newHealth){  health.setHealth(newHealth);
+    public void setHealth(int newHealth){
+        /*
+        Health setter
+        param:
+            int newHealth
+         */
+        health.setHealth(newHealth);
     }
-    // Runtime Errors - getAbilities for saving/loading them
-    public boolean[] getAbilities(){  return abilityAvailable;
+    //getAbilities adde by Runtime Errors
+    public boolean[] getAbilities(){
+        /*
+        getter for saving and loading abilities
+        return:
+            ability available
+         */
+        return abilityAvailable;
     }
-    // Runtime Errors - getAbilities for saving/loading them
-    public void setAbilities(boolean[] abilitiesSaved){ abilityAvailable = abilitiesSaved;
-    }
-
-    public void printit(String thing) {
-        System.out.println(thing);
-    }
-    public void printit(float thing) {
-        System.out.println(thing);
+    // setAbilities added by Runtime Errors
+    public void setAbilities(boolean[] abilitiesSaved){
+        /*
+        setter for saving and loading abilities
+        param:
+            boolean abilitiesSaved
+         */
+        abilityAvailable = abilitiesSaved;
     }
 
     public void draw(SpriteBatch batch){
+        /*
+        Draws the player
+        params:
+            SpriteBatch batch
+         */
         batch.draw(currentSprite, x, y);
         if (health.getHealing()) {
             health.draw(batch, x-2, y-2);
         }
     }
     public boolean shouldCreateMotionTrap(boolean motionTrapExists) {
+        /*
+        Checks if motion trap can be created
+        param:
+            boolean motionTrapExists
+        return:
+            true
+            false
+         */
         if(abilityCurrentlyActive[4] && !motionTrapExists) {
             return true;
         } else {
