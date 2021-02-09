@@ -50,7 +50,9 @@ public class LoadScreen implements Screen {
 
 
     public LoadScreen(final MainGame game){
-
+        /*creates the screen that allows the user to chose between starting a new game or loading
+        a saved game.
+         */
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
 
@@ -71,6 +73,7 @@ public class LoadScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /* draws all the objects that are part of the interface into the window*/
         update(Gdx.graphics.getDeltaTime());
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -90,6 +93,8 @@ public class LoadScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*allows the interface to adapt to a change in window size.*/
+
         camera.port.update(width, height);
     }
 
@@ -110,6 +115,8 @@ public class LoadScreen implements Screen {
 
     @Override
     public void dispose() {
+        /*removes the objects used from memory*/
+
         stage.dispose();
         world.dispose();
         b2dr.dispose();
@@ -118,6 +125,8 @@ public class LoadScreen implements Screen {
     }
 
     public void update(float delta){
+        /*updates the interface*/
+
         world.step(1/60f, 6, 2);
 
         //Updates Camera
@@ -126,6 +135,8 @@ public class LoadScreen implements Screen {
 
 
     void setupButtons(){
+        /*prepares textures and settings for the buttons that allow the user to change the difficulty level,
+        as well as setting up the functions that are called when the buttons are pressed*/
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
@@ -151,17 +162,23 @@ public class LoadScreen implements Screen {
 
         newButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*starts the game and passes a false boolean that causes PlayScreen to create
+                a new game instead of loading the old.
+                 */
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game,false));
             }
         });
         loadButton.addListener(new ClickListener(){
+            /*starts the game and passes a false boolean that causes PlayScreen to load
+                a  game instead of creating a new one*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new PlayScreen(game,true));
             }
         });
         backButton.addListener(new ClickListener(){
+            /*returns the user to the main menu screen*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new MainMenuScreen(game));

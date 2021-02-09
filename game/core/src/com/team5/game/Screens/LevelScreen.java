@@ -53,6 +53,8 @@ public class LevelScreen implements Screen {
 
 
     public LevelScreen(final MainGame game){
+        /*creates the screen for difficulty selection
+         */
 
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
@@ -74,6 +76,7 @@ public class LevelScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /* draws all the objects that are part of the interface into the window*/
         update(Gdx.graphics.getDeltaTime());
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -93,6 +96,7 @@ public class LevelScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*allows the interface to adapt to a change in window size.*/
         camera.port.update(width, height);
     }
 
@@ -113,6 +117,7 @@ public class LevelScreen implements Screen {
 
     @Override
     public void dispose() {
+        /*removes the objects used from memory*/
         stage.dispose();
         world.dispose();
         b2dr.dispose();
@@ -121,6 +126,7 @@ public class LevelScreen implements Screen {
     }
 
     public void update(float delta){
+        /*updates the interface*/
         world.step(1/60f, 6, 2);
 
         //Updates Camera
@@ -129,6 +135,9 @@ public class LevelScreen implements Screen {
 
 
     void setupButtons(){
+        /*prepares textures and settings for the buttons that allow the user to change the difficulty level,
+        as well as setting up the functions that are called when the buttons are pressed*/
+
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
@@ -154,6 +163,7 @@ public class LevelScreen implements Screen {
 
         easyButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*changes the level and returns to the memory screen*/
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setLevel(1);
                 game.setScreen(new MainMenuScreen(game));//change runtime errors
@@ -161,12 +171,14 @@ public class LevelScreen implements Screen {
         });
         mediumButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*changes the level and returns to the memory screen*/
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setLevel(2);
                 game.setScreen(new MainMenuScreen(game));//change runtime errors
             }
         });
         hardButton.addListener(new ClickListener(){
+            /*changes the level and returns to the memory screen*/
             public void clicked(InputEvent event, float x, float y){
                 game.setScreen(new MainMenuScreen(game));
                 game.setLevel(3);
