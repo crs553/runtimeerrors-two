@@ -60,7 +60,7 @@ public class MainMenuScreen implements Screen {
     CustomCamera camera;
 
     public MainMenuScreen (final MainGame game){
-
+        /*creates the main menu screen*/
         this.game = game;
         title = new Texture("Sprites/Menu/Title.png");
 
@@ -83,6 +83,8 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        /* draws all the objects that are part of the interface into the window*/
+
         update(Gdx.graphics.getDeltaTime());
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -103,6 +105,8 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        /*allows the interface to adapt to a change in window size.*/
+
         camera.port.update(width, height);
     }
 
@@ -123,6 +127,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
+        /*removes the objects used from memory*/
         this.dispose();
         stage.dispose();
         world.dispose();
@@ -133,6 +138,7 @@ public class MainMenuScreen implements Screen {
     //Custom functions from here
 
     public void update(float delta){
+        /*updates the interface*/
         world.step(1/60f, 6, 2);
 
         //Updates Camera
@@ -141,6 +147,8 @@ public class MainMenuScreen implements Screen {
 
     // Level addition
     void setupButtons(){
+        /*prepares textures and settings for the buttons that mute the sound, go to the load screen,
+        go to the level screen, and exit the game*/
         stage = new Stage(camera.port);
         Gdx.input.setInputProcessor(stage);
 
@@ -184,6 +192,7 @@ public class MainMenuScreen implements Screen {
         //added by runtime errors
         //changes the volume and mute button texture on click
         muteButton.addListener(new ClickListener() {
+            /*toggles sound on and off and changes the button texture*/
             public void clicked(InputEvent event,float x,float y) {
                 if(currentMuteButton <= 1) {
                     currentMuteButton = 2;
@@ -202,6 +211,7 @@ public class MainMenuScreen implements Screen {
 
         // Load screen added by Runtime Errors Team 25
         playButton.addListener(new ClickListener(){
+            /*opens the load screen*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new LoadScreen(game));
@@ -210,6 +220,7 @@ public class MainMenuScreen implements Screen {
 
         // Level screen added by Runtime Errors Team 25
         levelButton.addListener(new ClickListener(){
+            /*opens the level screen*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 game.setScreen(new LevelScreen(game));
@@ -217,6 +228,7 @@ public class MainMenuScreen implements Screen {
         });
 
         quitButton.addListener(new ClickListener(){
+            /*closes the game*/
             public void clicked(InputEvent event, float x, float y){
                 click.play(0.5f*Constants.volumeMultipler, 1.5f, 0);
                 Gdx.app.exit();
