@@ -40,6 +40,10 @@ public class Teleporters {
     Vector2 enginePosition = new Vector2(81*Constants.TILE_SIZE, 42*Constants.TILE_SIZE);
 
     public Teleporters(PlayScreen screen){
+        /*creates the teleporters
+        parameters:
+            PlayerScreen screen gives the current screen
+         */
         this.screen = screen;
 
         teleIdle = new AnimatedDrawable("idle", "Teleporter/Idle", 1f);
@@ -50,6 +54,7 @@ public class Teleporters {
     }
 
     void setup(){
+        /*instantatiates all the teleporters*/
         addTeleporter("PQ", PQPosition);
         addTeleporter("infirmary", infirmaryPosition);
         addTeleporter("north wing", northWingPosition);
@@ -57,8 +62,13 @@ public class Teleporters {
         addTeleporter("engine", enginePosition);
     }
 
-    //Adds a new teleporter to the PlayScreen stage
+
     void addTeleporter(String key, Vector2 pos){
+        /*Adds a new teleporter to the PlayScreen stage
+        parameters:
+            String key is for the dictionary of teleporters
+            Vector2 pos give the position of the teleporter on the minimap
+         */
         positions.put(key, pos);
 
         teleporter = new ImageButton(new Image(Constants.ATLAS.findRegion("Empty")).getDrawable());
@@ -74,6 +84,7 @@ public class Teleporters {
 
         teleporter.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*turns the map on*/
                 screen.minimapOn();
             }
         });
@@ -83,6 +94,12 @@ public class Teleporters {
 
     //added by runtime errors
     public boolean updateTeleporterAbility(boolean[] abilitiesActive) {
+        /*turns the minimap on if the wrist teleport ability is on
+        parameters:
+            boolean[] abilitiesActive gives the array of what ability is on
+        returns:
+            boolean true if ability on, else false
+         */
         if(abilitiesActive[2]) {
             screen.minimapOn();
             return true;
@@ -93,6 +110,12 @@ public class Teleporters {
     }
 
     public Vector2 getTeleporter(String key){
+        /* getter for the teleporter position
+        parameter:
+            String key is the teleporter key for the hashtable
+        return:
+            int pos gives the position of the teleporter on the minimap
+         */
         return positions.get(key);
     }
 
