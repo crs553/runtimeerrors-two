@@ -50,6 +50,16 @@ public class Infiltrator extends NPC{
     // Runtime Errors - Added caught parameter when constructed for loading already caught infiltrators
     public Infiltrator(MainGame game, PlayScreen screen, GameController gameController, World world,
                        NodeGraph graph, Node node, Vector2 position) {
+        /*stores all the variables needed to create an infiltrator
+        parameters:
+            MainGame game contains the game setting
+            PlayScreen screen passes the screen that currently occupies the window
+            GameController gameController passes the class that sets up the game
+            World world contains the map
+            NodeGraph graph gives the graph of all the possible targets on the map
+            Node node gives the node the infiltator starts in
+            Vector2 position gives the coordinates where the infiltrator starts in
+         */
         super(screen, world, graph, node, position);
         this.game = game;
 
@@ -63,6 +73,10 @@ public class Infiltrator extends NPC{
     //To be called every frame to move and animate the infiltrator.
     @Override
     public void update(float delta) {
+        /*sets up the animations
+        parameters:
+            float delta gives time elapsing
+         */
         if (!caught) {
             ai.update(delta);
             if (ai.isWaiting() && ai.isBreaking()){
@@ -100,7 +114,7 @@ public class Infiltrator extends NPC{
     //Sets up all the base Animations
     @Override
     public void setup() {
-
+        /*sets up the animations*/
         Random random = new Random();
         int sprite = random.nextInt(6)+1;
         anim = new Animator("idle", "NPC/" + sprite + "/Idle");
@@ -125,6 +139,7 @@ public class Infiltrator extends NPC{
 
         outlineButton.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y){
+                /*catch infiltrator and play corresponding animation*/
                 if (!caught) {
                     pass.play(0.3f*Constants.volumeMultipler);
                     beenCaught();
@@ -137,6 +152,7 @@ public class Infiltrator extends NPC{
 
     //Ability that changes the appearance
     public void changeSkin(){
+        /*Changes the texture of the infiltrator to a random different one*/
         Random random = new Random();
         int sprite = random.nextInt(6)+1;
         anim = new Animator("idle", "NPC/" + sprite + "/Idle");
@@ -155,6 +171,7 @@ public class Infiltrator extends NPC{
     }
 
     public void beenCaught(){
+        /*changes the animation if it's been caught*/
         caught = true;
         anim.play("caught");
         outlineButton.getStyle().imageOver =
@@ -162,6 +179,7 @@ public class Infiltrator extends NPC{
     }
 
     public void dispose(){
+        /*removes the unneeded objects from memory*/
         pass.dispose();
         ai.dispose();
     }
