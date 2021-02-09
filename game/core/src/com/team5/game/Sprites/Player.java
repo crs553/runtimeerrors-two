@@ -64,6 +64,7 @@ public class Player extends Sprite {
 
 
     public Player(MainGame game, World world){
+        /*
         Instantiates Player
         param:
             MainGame game
