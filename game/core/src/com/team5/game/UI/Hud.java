@@ -29,6 +29,11 @@ public class Hud {
     TextureAtlas atlas = Constants.ATLAS;
 
     public Hud(PlayScreen screen){
+        /*
+        Constructor for the HUD class
+        param:
+            PlayScreen screen
+         */
         player = screen.gameController.getPlayer();
         camera = screen.camera;
 
@@ -36,6 +41,9 @@ public class Hud {
     }
 
     void setupImages(){
+        /*
+        Creates initial overlay for health starting with 3 hearts
+         */
         stage = new Stage(camera.port);
 
         currentHealth = atlas.findRegion("Health/3");
@@ -46,6 +54,9 @@ public class Hud {
     }
 
     public void update(){
+        /*
+        Updates health when damage happens
+         */
         currentHealth = atlas.findRegion("Health/" + player.getHealth());
         healthBar.setPosition(camera.cam.position.x + healthOffset.x,
                 camera.cam.position.y + healthOffset.y);
@@ -53,6 +64,11 @@ public class Hud {
     }
 
     public void draw(float delta){
+        /*
+        Draws hud on screen
+        param:
+            float delta
+         */
         stage.act(delta);
         stage.draw();
     }

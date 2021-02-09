@@ -19,6 +19,9 @@ public class MainGame extends Game {
 
 	@Override
 	public void create () {
+		/*
+		Creates screen allowing change to other screen through .setScreen
+		 */
 		batch = new SpriteBatch();
 		atlas = Constants.ATLAS;
 		this.level = 2;
@@ -35,6 +38,20 @@ public class MainGame extends Game {
 		batch.dispose();
 		atlas.dispose();
 	}
-	public int getLevel(){return this.level;}
-	public void setLevel(int level){this.level = level;}
+	public int getLevel(){
+		/*
+		getter for level (difficulty)
+		returns:
+			int this.level
+		 */
+		return this.level;
+	}
+	public void setLevel(int level){
+		/*
+		setter for level (difficulty)
+		param:
+			int level
+		 */
+		this.level = level;
+	}
 }

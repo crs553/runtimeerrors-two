@@ -42,6 +42,16 @@ public class Point {
     String key;
 
     public Point(PlayScreen screen, Stage stage, Teleporters teleporters, String key, Vector2 position){
+        /*
+        Constructor for point class
+        Takes variables required and instantiates them within the class
+        param:
+            PlayScreen screen
+            Stage stage
+            Teleporters teleporters
+            String key
+            Vector 2 position
+         */
         this.screen = screen;
         this.stage = stage;
         this.teleporters = teleporters;
@@ -55,6 +65,9 @@ public class Point {
     }
 
     void setup(){
+        /*
+        Setups up the selection of teleported as an overlay on the minimap
+         */
         point = new ImageButton(new Image(Constants.ATLAS.findRegion("Empty")).getDrawable());
 
         //The 10s are to make the hitbox bigger
@@ -76,6 +89,13 @@ public class Point {
 
     //This is used to change it according to the cameras position whenever the minimap is called
     public void setPosition(float x, float y){
+        /*
+        Used to change the the position everytime the minimap is called
+        e.g. when teleport ability or pad is used
+        param:
+            float x
+            float y
+         */
         point.setPosition(x + position.x - offset, y + position.y - offset);
     }
 
