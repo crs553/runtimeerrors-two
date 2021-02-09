@@ -48,6 +48,11 @@ public class NPCAIBehaviour {
     Random random;
 
     public NPCAIBehaviour(NPC npc, NodeGraph graph, Node node){
+        /*sets the speed and prepares the objects needed for pathfinding
+        parameters:
+            NPC npc provides the settings for the animations
+            NodeGraph graph provides the pathfinding nodes
+            Node node gives the current node the npc is at*/
         this.npc = npc;
         this.graph = graph;
         currentNode = node;
@@ -60,6 +65,9 @@ public class NPCAIBehaviour {
 
     //Is called to tell the NPC what to do on each frame.
     public void update(float delta){
+        /*controls the npc waiting and directions
+        parameters:
+            float delta is the amount of time that has passed*/
         if (waiting){
             wait(delta);
             npc.direction = Vector2.Zero;
@@ -68,25 +76,31 @@ public class NPCAIBehaviour {
         }
     }
 
-    //Generates a random room for the npc to target.
     void newTarget(){
+        /*Generates a random room for the npc to target.*/
         goalNode = graph.getRandomRoom(currentNode);
         path = graph.findPath(currentNode, goalNode);
 
         target = path.get(currentIndex).randomPos();
     }
     //added by runtime errors
-    //These tell the ai to go slower if they are an infiltrator
     public void decreaseInfiltratorSpeed() {
+        /*make the npc go slower if they are an infiltrator*/
         slowed = true;
     }
     public void increaseInfiltratorSpeed() {
+        /*return the speed of the infiltrators to normal*/
         slowed = false;
     }
 
-
-    //Moves the npc towards their target.
     public Vector2 move(float x, float y){
+        /*Moves the npc towards their target.
+        parameters:
+            float x is the current x position of the npc
+            float y is the current y position of the npc
+        returns:
+            Vector2 object specifying where the npc is aiming
+         */
         if (goalNode.equals(path.get(currentIndex)) &&
                 x < target.x + offset && x > target.x - offset &&
                 y < target.y + offset && y > target.y - offset){
@@ -123,8 +137,13 @@ public class NPCAIBehaviour {
         }
     }
 
-    //added by runtime erros
+    //added by runtime errors
     public void activateAbility(int index) {
+        /*sets sprint to true if the sprint ability active
+        parameters:
+            int index gives the index of the ability in the active abilities array
+            in infiltator
+         */
         if(index == 0) {
             sprint = true;
         }
@@ -132,6 +151,10 @@ public class NPCAIBehaviour {
 
     //Makes the npc wait for a certain amount of time
     public void wait(float delta){
+        /*makes the npc wait for certain amount of time
+        parameters:
+            float delta give the amount of time passed
+         */
         if (waitTime <= 0f){
             waiting = false;
             newTarget();
