@@ -151,6 +151,11 @@ public class GameController {
     }
 
     public void updateTrapState(Player player) {
+        /*
+        Updates player trap status
+        params:
+            Player player
+         */
         if (!player.abilityCurrentlyActive[4] ) {
             motionTrapExists = false;
         }

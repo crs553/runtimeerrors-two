@@ -21,17 +21,6 @@ import java.util.Random;
 
 public class PositionFinder {
 
-    /*
-    PositionFinder is a tool that uses the TileMap to find the positions
-    of all the colliders on an object layer, in terms of tiles in the Tilemap.
-
-    I used it to find out the positions of the teleporters by creating a
-    teleporter layer and adding collision squares where I wanted the teleporter
-    to be, then this code finds the in-game positions.
-
-    Saves time calculating in-game positions.
-     */
-
     //Tilemap
     Rectangle rect;
     Map map;
@@ -40,12 +29,30 @@ public class PositionFinder {
     int index = 6;
 
     public PositionFinder(TiledMap map, PlayScreen screen){
+        /*
+        Constructor class for PositionFinder Class
+         PositionFinder is a tool that uses the TileMap to find the positions
+        of all the colliders on an object layer, in terms of tiles in the Tilemap.
+
+        I used it to find out the positions of the teleporters by creating a
+        teleporter layer and adding collision squares where I wanted the teleporter
+        to be, then this code finds the in-game positions.
+
+        Saves time calculating in-game positions.
+
+        params:
+            TiledMap map
+            PlayScreen screen
+         */
         this.map = map;
 
         findPositions();
     }
 
     void findPositions(){
+        /*
+        Find positions for the tiled map
+         */
         for(MapObject object: map.getLayers().get(index).getObjects().getByType(RectangleMapObject.class)){
             rect = ((RectangleMapObject) object).getRectangle();
 
